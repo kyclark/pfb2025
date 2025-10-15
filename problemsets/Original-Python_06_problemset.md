@@ -144,7 +144,7 @@ _In the same Ensembl window, follow the steps below to get genes that have been 
 
 
 __Write a script that opens each of the three files and add the contents (which are the Gene stable IDs) to a Set. Create one Set per file.__
-  - Then using set methods, indentify all the genes that **are not** cell proliferation genes.
+  - Then using set methods, identify all the genes that **are not** cell proliferation genes.
   - And identify all genes **that are both** stem cell proliferation genes and pigment genes.
     
 *Note* Make sure to NOT add the header to your set.  

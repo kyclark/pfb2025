@@ -420,5 +420,5 @@ GATGGGATTGGGGTTTTCCCCTCCCATGTGCTCAAGACTGGCGCTAAAAGTTTTGAGCTTCTCAAAAGTCTAGAGCCACC
    - iterate over each fragment and report
       - the start position in the original sequence
       - the end position in the original sequence
-      - the length of each fragemnt
+      - the length of each fragment
    - sort the fragments by length and print out as they would appear on a agrose gel. (big to little)
