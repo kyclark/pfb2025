@@ -4380,8 +4380,7 @@ dna = 'GTACCTTGATTTCGTATTCTGAGAGGCTGCTGCT'
 c_count = dna.count('C')  # count is a string method
 g_count = dna.count('G')
 dna_len = len(dna) # len is a function
-gc_content = (c_count + g_count) / dna_len # fra
-ction from 0 to 1
+gc_content = (c_count + g_count) / dna_len # fraction from 0 to 1
 print(gc_content)
 ```
 ### Defining a Function that calculates GC Content
