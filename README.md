@@ -169,7 +169,7 @@ Jessen Bredeson
       * [Loop Control](pfb.md/#loop-control)
       * [Loop Control: Break](pfb.md/#loop-control-break)
       * [Loop Control: Continue](pfb.md/#loop-control-continue)
-      * [Iterators](pfb.md/#iterators)
+      * [Iterators](https://github.com/prog4biol/pfb2024/blob/master/pfb.md/#iterators)
       * [List Comprehension](pfb.md/#list-comprehension)
    * [<a href="problemsets/Python_04_problemset.md">Link to Python 4 Problem Set</a>](problemsets/Python_04_problemset.md)
 * [Python 5](pfb.md/#python-5)
