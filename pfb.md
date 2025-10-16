@@ -1586,7 +1586,7 @@ Lists are data types that store a collection of data.
 
 - Lists are used to store an ordered, *indexed* collection of data.
 - Values are separated by commas
-- Values are enclosed in square brackets '[]'
+- Values are enclosed in square brackets `[]`
 - Lists can grow and shrink
 - Values are mutable
 
@@ -1598,8 +1598,8 @@ Lists are data types that store a collection of data.
 
 - Tuples are used to store an ordered, *indexed* collection of data.
 - Values are separated by commas
-- Values are enclosed in parentheses '()'
-- Tuples can **NOT** grow or shrink
+- Values are enclosed in parentheses `()`
+- Tuples **cannot** grow or shrink
 - Values are immutable
 
 ```python
@@ -1617,7 +1617,7 @@ Many functions and methods return tuples like `math.modf(x)`.  This function ret
 
 ### Accessing Values in Lists
 
-To retrieve a single value in a list use the value's index in this format list[index]. This will return the value at the specified index, starting with 0. 
+To retrieve a single value in a list use the value's index in this format `list[index]`. This will return the value at the specified index, starting with 0. 
 
 Here is a list:  
 ```python
