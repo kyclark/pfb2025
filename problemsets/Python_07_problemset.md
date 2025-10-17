@@ -12,7 +12,7 @@ Python 7 - Regular Expressions - Problem Set
 
 5. Create a FASTA parser, or modify your FASTA parser from the previous problem set, to use regular expressions. Also make sure your parser can deal with a sequence that is split over many lines.
 
-6. The enzyme ApoI has a restriction site: R^AATTY where R and Y are degenerate nucleotides. See the [IUPAC table](https://www.bioinformatics.org/sms/iupac.html) to identify the nucleotide possibilities for the R and Y. Write a regular expression to find and print all occurrences of the site in the following sequence [Python_07_ApoI.fasta](https://raw.githubusercontent.com/prog4biol/pfb2025/master/files/Python_07_ApoI.fasta). 
+6. The enzyme ApoI has a restriction site: R^AATTY where R and Y are degenerate nucleotides. See the [IUPAC table](https://www.bioinformatics.org/sms/iupac.html) to identify the nucleotide possibilities for the R and Y. Write a regular expression to find and print all occurrences of the site in the following sequence [Python_07_ApoI.fasta](https://raw.githubusercontent.com/prog4biol/pfb2025/master/files/Python_07_ApoI.fasta). (Just in case you were wondering: The '^' in R^AATTY is NOT actually part of the pattern. It just indicates where the cut is happening.)
 
 ```
 >seq1
