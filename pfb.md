@@ -4592,6 +4592,7 @@ def set_local_x_to_five(x):
 
 print('After def')
 x = 100 # global x
+y = 100 # global y
 print('x =', x)
 print('y =', y)
 
