@@ -2400,13 +2400,13 @@ Normally you won't do this. We'll talk about ways to build a dictionary from a f
 
 ### Checking That Dictionary Keys Exist
 
-Python generates an error (NameError) if you try to access a key that does not exist.  
+Python generates an error (KeyError) if you try to access a key that does not exist.  
 
 ```python
 >>> print(genes['HDAC'])
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-NameError: name 'HDAC' is not defined
+KeyError: 'HDAC'
 ```
 
 ### Dictionary Operators
