@@ -33,17 +33,20 @@ You can use code you have previously written to calculate GC content, or try the
 3. Test your code with a small test set of 2 or 3 very short sequences.
 4. Run your code on [Python_08.fasta](../files/Python_08.fasta)
 
-## Parsing BLAST output
-### Preparation for problem
 
-Preparation:
 
-1.  Download uniprot_sprot using the Unix command 'wget':
+## Running BLAST with your own custom database
+
+
+
+These questions will take some research and set up. Spend some time reading about how to run blast and ask for help as needed. We are going to make a custom database for BLAST. This database will contain the proteins from Salmonella paratyphi B which you will create in the following steps (s_paratyphi.prot.fa):
+
+1.  Download uniprot_sprot using the Unix command 'curl':
 
 ```
 curl -OL ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.fasta.gz
 ```
-**Make sure to not add this to your gitHub Repository. It is tooooo big and with cause problems**
+**Make sure to not add this to your GitHub Repository. It is tooooo big and with cause problems**
 
 2. Unzip the file using the Unix command 'gunzip':
 
@@ -61,25 +64,25 @@ curl -OL https://raw.githubusercontent.com/prog4biol/pfb2025/master/setup/pre-co
 ```
 
 
-3. What does the uniprot_sprot.fasta file contain? How many records? Does it look intact? How do you know?
+3. What does the uniprot_sprot.fasta file contain? How many records? Does it look intact? How do you know? Try using command line functions like "grep" and "wc -l" to determine this rather than python
 
-Extract IDs from fasta file
+### Extracting Salmonella paratyphi B entries from `uniprot_sprot.fasta`
 
-1. with the `Bio.SeqIO` module, generate a list of all the IDs in the fasta file. How many are there?
+1. With the `Bio.SeqIO` module, read in `uniprot_sprot.fasta`
 
-2. Make a list of all the descriptions. The description field almost always has a field OS=... that includes a species or strain designation. Here's an example
+2. Print out and look at the descriptions of each record (seq_record.description). In this particular file, the description field almost always has a field OS=... that includes a species or strain designation. Here's an example
 
 ```
 sp|A9N862|AAEB_SALPB p-hydroxybenzoic acid efflux pump subunit AaeB OS=Salmonella paratyphi B (strain ATCC BAA-1250 / SPB7) GN=aaeB PE=3 SV=1
 ```
 
-Here the genus is _Salmonella_ and the species is _paratyphi_. There is also a strain 'B (strain ATCC BAA-1250 / SPB7). You can ignore this part. Using regular expressions, extract just the genus and species and count the number of sequences present for that genus/species combination. List comprehensions make this kind of data processing quick to code, but you might want to start by going step by step in a for loop.
+Here the genus is _Salmonella_ and the species is _paratyphi_. There is also a strain 'B (strain ATCC BAA-1250 / SPB7). You can ignore this part. 
 
 3. Make a new fasta file of all the sequences containing the species 'Salmonella paratyphi B'. Include the 'B' for this part of the exercise. Call this protein file s_paratyphi.prot.fa. You'll want to loop through all the sequence records, extract the description, find matches to 'Salmonella paratyphi B' and convert to fasta.
 
-__Running BLAST Locally__
-These questions will take some research and set up. Spend some time reading about how to run blast and ask for help as needed.
-1. Blast a protein such as [purH](https://raw.githubusercontent.com/prog4biol/pfb2025/master/files/purH.aa.fa) against the S. paratyphi B proteins. You can do this remotely or locally with a blast binary or with biopython.
+
+
+1. After you make your BLAST db with s_paratyphi.prot.fa, try to BLAST a protein such as [purH](https://raw.githubusercontent.com/prog4biol/pfb2025/master/files/purH.aa.fa) against the S. paratyphi B proteins. You can do this remotely or locally with a blast binary or with biopython.
 2. Print the E-value and the score and the length of the alignment and the % similarity (not % identity)
 
 
@@ -88,7 +91,7 @@ __Install NCBI Blast+__
 ```
 conda install -c bioconda blast
 ```
-2. Now in a NEW terminal window, you will have the blast executables available. (blastn, blastx, tblastn, tblastx, blastp, makeblastdb, blastdbcmd)
+2. Now, you will have the blast executables available. (blastn, blastx, tblastn, tblastx, blastp, makeblastdb, blastdbcmd), try a new terminal if they do not work
 
 __Run BLAST+__
 1. First format you FASTA file so that BLAST+ can use it as a database
