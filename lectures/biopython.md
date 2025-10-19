@@ -252,7 +252,7 @@ The Seq Object predicts that we want a string when we `print()` our seqobj or if
 >>> type(seqobj)
 <class 'Bio.Seq.Seq'>
 >>> seqobj
-Seq('ATGCGATCGAGC', Alphabet())
+Seq('ATGCGATCGAGC')
 >>> str(seqobj)
 'ATGCGATCGAGC'
 >>> type(str(seqobj))
@@ -284,18 +284,41 @@ Get help on the parse() method with
 ```python
 >>> from Bio import SeqIO
 >>> help(SeqIO.parse)
-
 Help on function parse in module Bio.SeqIO:
 
 parse(handle, format, alphabet=None)
-    Turns a sequence file into an iterator returning SeqRecords.
-    
-        - handle   - handle to the file, or the filename as a string
-          (note older versions of Biopython only took a handle).
-        - format   - lower case string describing the file format.
-        - alphabet - optional Alphabet object, useful when the sequence type
-          cannot be automatically inferred from the file itself
-          (e.g. format="fasta" or "tab")
+    Turn a sequence file into an iterator returning SeqRecords.
+
+    Arguments:
+     - handle   - handle to the file, or the filename as a string
+     - format   - lower case string describing the file format.
+     - alphabet - no longer used, should be None.
+
+    Typical usage, opening a file to read in, and looping over the record(s):
+
+    >>> from Bio import SeqIO
+    >>> filename = "Fasta/sweetpea.nu"
+    >>> for record in SeqIO.parse(filename, "fasta"):
+    ...    print("ID %s" % record.id)
+    ...    print("Sequence length %i" % len(record))
+    ID gi|3176602|gb|U78617.1|LOU78617
+    Sequence length 309
+
+    For lazy-loading file formats such as twobit, for which the file contents
+    is read on demand only, ensure that the file remains open while extracting
+    sequence data.
+
+    If you have a string 'data' containing the file contents, you must
+    first turn this into a handle in order to parse it:
+
+    >>> data = ">Alpha\nACCGGATGTA\n>Beta\nAGGCTCGGTTA\n"
+    >>> from Bio import SeqIO
+    >>> from io import StringIO
+    >>> for record in SeqIO.parse(StringIO(data), "fasta"):
+    ...     print("%s %s" % (record.id, record.seq))
+    Alpha ACCGGATGTA
+    Beta AGGCTCGGTTA
+
     
 ...
 ```
