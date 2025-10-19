@@ -286,5 +286,5 @@ Jessen Bredeson
 * [Workshops](workshops.md/#workshops)
    * [Ethics and Responsibility in Bioinformatics -- Simon Prochnik](workshops.md/#ethics-and-responsibility-in-bioinformatics----simon-prochnik)
    * [Coding with AI -- Simon](workshops.md/#coding-with-ai----simon)
-   * [RNAseq -- Brian Haas](workshops.md/#rnaseq----brian-haas)
-   * [Protein Homology -- Bill Pearson](workshops.md/#protein-homology----bill-pearson)
+   * [RNAseq -- Brian Haas](https://github.com/prog4biol/pfb2025/tree/master/workshops/RNAseq)
+   * [Protein Homology -- Bill Pearson](https://github.com/prog4biol/pfb2025/tree/master/workshops/Sequence_homology)
