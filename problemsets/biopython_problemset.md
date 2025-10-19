@@ -39,7 +39,7 @@ You can use code you have previously written to calculate GC content, or try the
 
 
 
-These questions will take some research and set up. Spend some time reading about how to run blast and ask for help as needed. We are going to make a custom database for BLAST. This database will contain the proteins from Salmonella paratyphi B which you will create in the following steps (s_paratyphi.prot.fa):
+These questions will take some research and set up. Spend some time reading about how to run blast and ask for help as needed. We are going to make a custom database for BLAST. This database will contain the proteins from Salmonella paratyphi B which you will create in the following steps:
 
 1.  Download uniprot_sprot using the Unix command 'curl':
 
@@ -78,12 +78,7 @@ sp|A9N862|AAEB_SALPB p-hydroxybenzoic acid efflux pump subunit AaeB OS=Salmonell
 
 Here the genus is _Salmonella_ and the species is _paratyphi_. There is also a strain 'B (strain ATCC BAA-1250 / SPB7). You can ignore this part. 
 
-3. Make a new fasta file of all the sequences containing the species 'Salmonella paratyphi B'. Include the 'B' for this part of the exercise. Call this protein file s_paratyphi.prot.fa. You'll want to loop through all the sequence records, extract the description, find matches to 'Salmonella paratyphi B' and convert to fasta.
-
-
-
-1. After you make your BLAST db with s_paratyphi.prot.fa, try to BLAST a protein such as [purH](https://raw.githubusercontent.com/prog4biol/pfb2025/master/files/purH.aa.fa) against the S. paratyphi B proteins. You can do this remotely or locally with a blast binary or with biopython.
-2. Print the E-value and the score and the length of the alignment and the % similarity (not % identity)
+3. Make a new fasta file of all the sequences containing the species 'Salmonella paratyphi B'. Include the 'B' for this part of the exercise. Call this protein file `s_paratyphi.prot.fa`. You'll want to loop through all the sequence records, extract the description, find matches to 'Salmonella paratyphi B' and convert to fasta.
 
 
 __Install NCBI Blast+__
@@ -93,7 +88,21 @@ conda install -c bioconda blast
 ```
 2. Now, you will have the blast executables available. (blastn, blastx, tblastn, tblastx, blastp, makeblastdb, blastdbcmd), try a new terminal if they do not work
 
-__Run BLAST+__
+
+1. Run `makeblastdb -dbtype prot -in s_paratyphi.prot.fa -parse_seqids` to create a custom BLAST database containing the Salmonella proteins. Run `makeblastdb -help` for more info on this command
+2. After you make your BLAST db with s_paratyphi.prot.fa, try to BLAST a protein such as [purH](https://raw.githubusercontent.com/prog4biol/pfb2025/master/files/purH.aa.fa) against the S. paratyphi B proteins. You can use the `blastp -db s_paratyphi.prot.fa -query purH.aa.fa -outfmt 5 -out result.xml`. The BLAST XML contains very detailed output about the alignments. Note that you can alternatively use -output 6 for a more human readable tab separated output format, but for BioPython we will use the XML output format (-outfmt 5)
+
+      
+__Parse BLAST Output__
+
+
+1. Use BioPython to parse your XML BLAST results. You can refer to the code in the lecture notes for this [in the lecture notes](../lectures/biopython.md#parsing-blast-output). Print out all the hit sequence ID that are better than 1e-5 as well as their descriptions in tab separated columns.
+2. Print the E-value and the score and the length of the alignment and the % similarity (not % identity)
+
+
+
+
+__General instructions for using BLAST+__
 1. First format you FASTA file so that BLAST+ can use it as a database
   `makeblastdb -in [FASTAFILE] -dbtype [nucl or prot] -parse_seqids`
       - `-in` is the switch for the FASTA formatted sequence file that you want to use as your BLAST db
@@ -106,8 +115,5 @@ __Run BLAST+__
       - `-out` A name of your choice for your output file, otherwise, the output is printed to the screen
       - `-evalue` The Expectation value (E) threshold for returning hits. 1e-5 is a common cutoff (Bill will say 1e-2, but we will be a tad more conservative)
       - `-outfmt` Choose the output format of your BLAST report as XML(5) `-outfmt 5` .  TAB(6) is also common output but unparsable by BioPython.  
-      
-__Parse BLAST Output__
 
-1. Use BioPython to parse your XML BLAST results. Print out all the hit sequence ID that are better than 1e-5 as well as their descriptions in tab separated columns.
   
