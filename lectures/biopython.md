@@ -609,7 +609,8 @@ seq_record.format(              seq_record.reverse_complement(
 
 ## Retrieving annotations from GenBank file
 
-To read sequences from a GenBank file instead, not much changes.
+To read sequences from a GenBank file instead, not much changes.  
+Get one here: [sequence.gb](https://raw.githubusercontent.com/prog4biol/pfb2025/master/files/sequence.gb)
 
 ```python
 #!/usr/bin/env python3
