@@ -7,7 +7,7 @@ Ask TAs about installing VS Code Python extentions.
 
 ## FASTA Parser
 
-1. Create a new FASTA parser that uses BioPython SeqIO (e.g. `from Bio import SeqIO`) to print the sequence name, description, and sequence as tab delimited output
+1. Create a new FASTA parser that uses BioPython SeqIO (e.g. `from Bio import SeqIO`) ([review `SeqIO.parse` in notes](../lectures/biopython.md#read-a-fasta-file))to print the sequence name, description, and sequence as tab delimited output
 2. Add in some code to print out stats about your FASTA records in your multi-FASTA file:
    -  total number of sequences
    -  total number of nucleotides
