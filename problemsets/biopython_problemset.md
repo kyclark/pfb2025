@@ -8,7 +8,7 @@ Ask TAs about installing VS Code Python extentions.
 ## FASTA Parser
 
 1. Create a new FASTA parser that uses BioPython to get the sequence name, description, and sequence.
-2. Add in some code to print out stats about your FASTA records in your mult-FASTA file:
+2. Add in some code to print out stats about your FASTA records in your multi-FASTA file:
    -  total number of sequences
    -  total number of nucleotides
    -  average length of sequences
