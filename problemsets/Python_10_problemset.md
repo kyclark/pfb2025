@@ -3,7 +3,7 @@ Python 10 - Functions - Problem Set
 
 1. Create a function to format a string of DNA so that each line is no more than 60 nt long. Your function will:
 	- INPUT: a string of DNA without newlines   
-	- OUTPUT: a string of DNA with lines no more than 60 nucleoties long
+	- OUTPUT: a string of DNA with lines no more than 60 nucleotides long
 
 ```
 INPUT:
