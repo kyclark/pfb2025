@@ -504,6 +504,7 @@ Visit biopython.org to read how [Sequences act like strings](http://biopython.or
 
 ```python
 from Bio.Seq import Seq
+seqobj = Seq('ATGCTAACCAAAGTTTCAGTTCGGACGTGTCGATGAGCGACGCTCAAAAAGGAA')
 seqobj.count("A")  # counts how many As are in sequence
 seqobj.find("ATG") # find coordinate of ATG (-1 for not found)
 ```
