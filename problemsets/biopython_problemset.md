@@ -1,17 +1,9 @@
 # Biopython problem set
 
-## Install Biopython on your machine
+## Customizing your VS Code
 
-
-```
-% mamba create --name bio
-% mamba activate bio
-(bio)% mamba install --channel conda-forge --channel bioconda biopython 
-```
-> **If** you are on your own computer and not using one of the course machines you will have to download mamba
-> 
-> [mamba-installation](https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html)
-> 
+Ask TAs about changing your python version in VS Code to get VS code to recognize the BioPython installation.      
+Ask TAs about installing VS Code Python extentions.   
 
 ## FASTA Parser
 
