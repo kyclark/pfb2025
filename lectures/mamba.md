@@ -107,7 +107,7 @@ For example:
     ```bash
     $ mm search wget
     Getting repodata from channels...
-
+    
     pkgs/main/osx-64                                              No change
     pkgs/main/noarch                                              No change
     pkgs/r/osx-64                                                 No change
@@ -116,41 +116,40 @@ For example:
     bioconda/noarch                                      5.0MB @   5.5MB/s  1.0s
     conda-forge/noarch                                  22.8MB @  10.7MB/s  2.1s
     conda-forge/osx-64                                  41.4MB @  19.3MB/s  2.2s
-
-
+    
 	     wget 1.25.0 h3a17b82_0         
-    ────────────────────────────────────────
-
-     Name            wget
-     Version         1.25.0
-     Build           h3a17b82_0
-     Size            873 kB
-     License         GPL-3.0-or-later
-     Subdir          osx-64
-     File Name       wget-1.25.0-h3a17b82_0.conda
-     URL             https://repo.anaconda.com/pkgs/main/osx-64/wget-1.25.0-h3a17b82_0.conda
-     MD5             3b1ba76caf798c06766f19fb8fa3554c
-     SHA256          f270e4c7665e029ab3dc23c2f8e7330392c1cb16ea49fd02268c8e99733d0e63
-
-     Dependencies:
-      - zlib >=1.2.13,<1.3.0a0
-      - libiconv >=1.16,<2.0a0
-      - openssl >=3.0.15,<4.0a0
-      - gettext >=0.21.0,<1.0a0
-      - pcre2 >=10.42,<10.43.0a0
-      - libidn2 >=2,<3.0a0
-      - libunistring >=0,<1.0a0
-
-     Other Versions (8):
-
-      Version Build                           
-     ──────────────────────────────────────────
-      1.24.5  h3a17b82_0                      
-      1.21.4  hca547e6_0          (+ 3 builds)
-      ...     (4 hidden versions)          ...
-      1.19.4  h073198b_0                      
-      1.19.1  hcb5d8a9_0  
-    ```
+	────────────────────────────────────────
+	
+	 Name            wget
+	 Version         1.25.0
+	 Build           h3a17b82_0
+	 Size            873 kB
+	 License         GPL-3.0-or-later
+	 Subdir          osx-64
+	 File Name       wget-1.25.0-h3a17b82_0.conda
+	 URL             https://repo.anaconda.com/pkgs/main/osx-64/wget-1.25.0-h3a17b82_0.conda
+	 MD5             3b1ba76caf798c06766f19fb8fa3554c
+	 SHA256          f270e4c7665e029ab3dc23c2f8e7330392c1cb16ea49fd02268c8e99733d0e63
+	
+	 Dependencies:
+	  - zlib >=1.2.13,<1.3.0a0
+	  - libiconv >=1.16,<2.0a0
+	  - openssl >=3.0.15,<4.0a0
+	  - gettext >=0.21.0,<1.0a0
+	  - pcre2 >=10.42,<10.43.0a0
+	  - libidn2 >=2,<3.0a0
+	  - libunistring >=0,<1.0a0
+	
+	 Other Versions (8):
+	
+	  Version Build                           
+	 ──────────────────────────────────────────
+	  1.24.5  h3a17b82_0                      
+	  1.21.4  hca547e6_0          (+ 3 builds)
+	  ...     (4 hidden versions)          ...
+	  1.19.4  h073198b_0                      
+	  1.19.1  hcb5d8a9_0  
+	```
 
 2.  Then choose the version (and build) you want to install:
 
