@@ -7,7 +7,7 @@ Ask TAs about installing VS Code Python extentions.
 
 ## FASTA Parser
 
-1. Create a new FASTA parser that uses BioPython SeqIO (e.g. `from Bio import SeqIO`) ([review `SeqIO.parse` in notes](../lectures/biopython.md#read-a-fasta-file))to print the sequence name, description, and sequence as tab delimited output
+1. Create a new FASTA parser that uses BioPython SeqIO (e.g. `from Bio import SeqIO`) ([review `SeqIO.parse` in notes](../lectures/biopython.md#read-a-fasta-file)) to print the sequence name, description, and sequence as tab delimited output
 2. Add in some code to print out stats about your FASTA records in your multi-FASTA file:
    -  total number of sequences
    -  total number of nucleotides
@@ -28,7 +28,35 @@ Ask TAs about installing VS Code Python extentions.
   highest GC content: ?
 
   ```
-You can use code you have previously written to calculate GC content, or try the Bio.SeqUtils gc_fraction function to calculate it
+You can use code you have previously written to calculate GC content, or try the Bio.SeqUtils gc_fraction function to calculate it. 
+
+gc_fraction will work with Bio.SeqRecord.SeqRecord objects as well as a literal DNA sequence string(seq_record)
+
+
+gc_fraction using a String
+```python
+>>> from Bio.SeqUtils import gc_fraction
+>>> gc_fraction('GGCCTTTTTTTT')
+0.3333333333333333
+```
+
+gc_fraction using a seq_record
+```python
+>>> from Bio import SeqIO
+>>> from Bio.SeqUtils import gc_fraction
+>>> filename = "seq.nt.fa"
+
+>>> filename = "seq.nt.fa"
+>>> for seq_record in SeqIO.parse(filename,"fasta"):
+...     print(seq_record.id,gc_fraction(seq_record))
+...
+...
+seq1 0.46111111111111114
+seq2 0.5222222222222223
+seq3 0.25510204081632654
+seq4 0.37799043062200954
+```
+
   
 3. Test your code with a small test set of 2 or 3 very short sequences.
 4. Run your code on [Python_08.fasta](../files/Python_08.fasta)
@@ -86,6 +114,10 @@ __Install NCBI Blast+__
 ```
 conda install -c bioconda blast
 ```
+
+OR (just so you  know) -- Don't do both -- you can download and unpackage the [ncbi-blast-2.17.0+-x64-macosx.tar.gz](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.17.0+-x64-macosx.tar.gz) all the NCBI-BLAST tools like, blastp. 
+
+
 2. Now, you will have the blast executables available. (blastn, blastx, tblastn, tblastx, blastp, makeblastdb, blastdbcmd), try a new terminal if they do not work
 
 
