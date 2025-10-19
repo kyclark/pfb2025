@@ -222,7 +222,7 @@ Visit biopython.org to read about [Slicing a sequence](http://biopython.org/DIST
 ```python
 >>> seqobj = Seq('ATGCGATCGAGC')
 >>> seqobj[0:3]
-Seq('ATG', Alphabet())
+Seq('ATG')
 >>> print(seqobj[0:3])
 ATG
 ```
