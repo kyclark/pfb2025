@@ -7,16 +7,16 @@ Ask TAs about installing VS Code Python extentions.
 
 ## FASTA Parser
 
-1. Create a new FASTA parser that uses BioPython to get the sequence name, description, and sequence.
+1. Create a new FASTA parser that uses BioPython SeqIO (e.g. `from Bio import SeqIO`) to print the sequence name, description, and sequence as tab delimited output
 2. Add in some code to print out stats about your FASTA records in your multi-FASTA file:
    -  total number of sequences
    -  total number of nucleotides
    -  average length of sequences
    -  shortest sequence length
    -  longest sequence length
-   -  average GC content
-   -  highest GC content
-   -  lowest GC content
+   -  average GC content of all the sequences in the file
+   -  the sequence with the highest GC content
+   -  the sequence with the lowest GC content
   ```
   sequence count: ? 
   total number of nucleotides: ? 
@@ -28,6 +28,7 @@ Ask TAs about installing VS Code Python extentions.
   highest GC content: ?
 
   ```
+You can use code you have previously written to calculate GC content, or try the Bio.SeqUtils gc_fraction function to calculate it
   
 3. Test your code with a small test set of 2 or 3 very short sequences.
 4. Run your code on [Python_08.fasta](../files/Python_08.fasta)
