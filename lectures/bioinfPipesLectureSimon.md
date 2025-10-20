@@ -72,6 +72,7 @@ split(...)
 awk is a simple unix utility for reformatting text files. An awk script would look like this
 
 ```
+#!/usr/bin/env awk
 BEGIN { print "File\tOwner"}   # block executed before main script
 { print $9 "\t" $3}          # main script
 END { print " - DONE -" }      # block executed after main script
@@ -126,7 +127,7 @@ Recall, how do we get the long listing? `ls -l`. Note also the first line of `ls
 Put these together with our friend pipe `|` and add a tab between columns
 
 ```
-% ls -l | awk 'BEGIN{print "filename\towner"} $1 != "total" {print $9 "\t"  $3}'    # no commas!! why??
+% ls -l | awk 'BEGIN{print "filename\towner"} $1 != "total" {print $9 "\t"  $3}'  # no commas!! why??
 filename	owner
 scope_global.py 	 simonp
 scope_global.py~ 	 simonp
@@ -169,11 +170,11 @@ samtools view /Users/simonp/src/samtools-1.14/test/mpileup/mpileup.2.bam | awk '
 Much simpler than python, put the re between slashes
 
 ```
-awk '/li/ { print $2 }' mail-list   # match on the whole line
+awk '/li/ { print $2 }' mail-list.txt   # match on the whole line
 
 awk '{ if ($1 ~ /J/) print }' inventory-shipped  # match on a field (column 1)
 
-ls -l | awk ' /smpl[0-9]/ {print $9}'  # match a digit 0,1,2,3 etc
+ls -l | awk ' /smpl[0-9]\./ {print $9}'  # match a single digit 0,1,2,3 etc before .fastq
 ```
 
 
@@ -233,9 +234,156 @@ filesize and md5 checksums
 
 ## Designing and Implementing a Bioinformatics Pipeline
 
-Say you want to automate blast runs. Your first challenge is to come up with an exact step by step recipe of how you would run a single blast job from the command line. We skip several hours of reading, research, trial and error for the sake of teaching. Here's an example of what we'd run in the terminal.
+Say you want to automate blast runs. Your first challenge is to come up with an exact step by step recipe of how you would run a single blast job from the command line. We skip several hours of reading, research, trial and error for the sake of teaching, but here are some key steps.
+
+Install standalone unix executables (programs) for blast+ from ncbi (see help here https://www.ncbi.nlm.nih.gov/books/NBK52640/)
+
+makeblastdb formats a database file so that you can search therein for sequences that are similar to your query. Formatting generates a series of files that end `.pXX` where X is any character. Here's an example of the output files when the input file is `EcoliO157.uniprot.fa` (see the command below)
 
 ```
+EcoliO157.uniprot.fa.pin
+EcoliO157.uniprot.fa.phr
+EcoliO157.uniprot.fa.psq
+EcoliO157.uniprot.fa.pog
+EcoliO157.uniprot.fa.pot
+EcoliO157.uniprot.fa.pto
+EcoliO157.uniprot.fa.ptf
+EcoliO157.uniprot.fa.pos
+EcoliO157.uniprot.fa.pdb
+```
+
+We just need to know that blast needs these files to search with a query. The details are not important.
+
+When we run blast, by default, the output shows up on the screen in blast report format, like so
+
+```
+% blastp -query ilvG.bacteria.prot.fa -db EcoliO157.uniprot.fa -evalue 1e-10  
+BLASTP 2.10.1+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: EcoliO157.uniprot.fa
+           4,587 sequences; 1,403,709 total letters
+
+
+
+Query= sp|P66947|ILVG_MYCBO Probable acetolactate synthase OS=Mycobacterium
+bovis (strain ATCC BAA-935 / AF2122/97) OX=233413 GN=ilvG PE=3 SV=1
+
+Length=547
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+P0AFI0 Oxalyl-CoA decarboxylase OS=Escherichia coli (strain K12) ...  197     4e-57
+P0DP90 Acetolactate synthase isozyme 2 large subunit OS=Escherich...  149     1e-39
+P00893 Acetolactate synthase isozyme 3 large subunit OS=Escherich...  149     2e-39
+P08142 Acetolactate synthase isozyme 1 large subunit OS=Escherich...  147     5e-39
+P0AEP7 Glyoxylate carboligase OS=Escherichia coli (strain K12) OX...  139     3e-36
+P0DP89 Putative acetolactate synthase isozyme 2 large subunit OS=...  112     4e-28
+P07003 Pyruvate dehydrogenase [ubiquinone] OS=Escherichia coli (s...  98.6    1e-22
+
+
+>P0AFI0 Oxalyl-CoA decarboxylase OS=Escherichia coli (strain K12) OX=83333 
+GN=oxc PE=1 SV=1
+Length=564
+
+ Score = 197 bits (501),  Expect = 4e-57, Method: Compositional matrix adjust.
+ Identities = 170/556 (31%), Positives = 275/556 (49%), Gaps = 30/556 (5%)
+
+Query  1    MSTDTAPAQTMHAGRLIARRLKASGIDTVFTLSGGHLFSIYDGCREEGIRLIDTRHEQTA  60
+            MS        MH   +I   LK + IDT++ + G  +  +    + EGIR I  RHEQ+A
+Sbjct  1    MSDQLQMTDGMH---IIVEALKQNNIDTIYGVVGIPVTDMARHAQAEGIRYIGFRHEQSA  57
+
+Query  61   AFAAEGWSKVTRVPGVAALTAGPGITNGMSAMAAAQQNQSPLVVLGGRAP--ALRWGMGS  118
+             +AA     +T+ PG+    + PG  NG++A+A A  N  P++++ G +    +    G 
+Sbjct  58   GYAAAASGFLTQKPGICLTVSAPGFLNGLTALANATVNGFPMIMISGSSDRAIVDLQQGD  117
+
+Query  119  LQEIDHVPFVAPVARFAATAQSAENAGLLVDQALQAAVSAPSGVAFVDFPMD-HAFSMSS  177
+             +E+D +    P A+ A      ++ G+ + +A++ +VS   G  ++D P +  A +M  
+Sbjct  118  YEELDQMNAAKPYAKAAFRVNQPQDLGIALARAIRVSVSGRPGGVYLDLPANVLAATMEK  177
+
+Query  178  DNGRPGALTELPA--GPTPA----GDALDRAAGLLSTAQRPVIMAGTNVWWGHAEAALLR  231
+            D     ALT +     P+PA      ++  A  LL+ A+RP+I+ G    +  A+  L  
+Sbjct  178  DE----ALTTIVKVENPSPALLPCPKSVTSAISLLAKAERPLIILGKGAAYSQADEQLRE  233
+
+Query  232  LVEERHIPVLMNGMARGVVPADHRLAFSRARSKALGEADVALIVGVPMDFRLGFGGV-FG  290
+             +E   IP L   MA+G++   H L+ + ARS AL  ADV ++VG  +++ L  G   + 
+Sbjct  234  FIESAQIPFLPMSMAKGILEDTHPLSAAAARSFALANADVVMLVGARLNWLLAHGKKGWA  293
+
+Query  291  STTQLIVADRVEPAR-EHPRPVAAGLYGDLTAT----LSALAGSGGTDHQGWIEELATAE  345
+            + TQ I  D +EP   +  RP+A  + GD+ ++    L+ L  +  T    W + L   +
+Sbjct  294  ADTQFIQLD-IEPQEIDSNRPIAVPVVGDIASSMQGMLAELKQNTFTTPLVWRDILNIHK  352
+
+Query  346  TMARDLEKAELVDDRIPLHPMRVYAELAALL--ERDALVVIDAGDFGSYAGRMIDSYLPG  403
+                     +L  D  PL+     + +  +L   +D  +V +  +    A  +ID Y P 
+Sbjct  353  QQNAQKMHEKLSTDTQPLNYFNALSAVRDVLRENQDIYLVNEGANTLDNARNIIDMYKPR  412
+
+Query  404  CWLDSGPFGCLGSGPGYALAAKLARPQRQVVLLQGDGAFGFSGMEWDTLVRHNVAVVSVI  463
+              LD G +G +G G GYA+ A +      VV ++GD AFGFSGME +T+ R+N+ V  VI
+Sbjct  413  RRLDCGTWGVMGIGMGYAIGASVTS-GSPVVAIEGDSAFGFSGMEIETICRYNLPVTIVI  471
+
+Query  464  GNNGIWGLEKHPMEALYGYSVVA--ELRPGTRYDEVVRALGGHGELVSVPAELRPALERA  521
+             NNG  G+ +     L G    +  +L    RYD+++ A  G G  V+   ELR AL   
+Sbjct  472  FNNG--GIYRGDGVDLSGAGAPSPTDLLHHARYDKLMDAFRGVGYNVTTTDELRHALTTG  529
+
+Query  522  FASGLPAVVNVLTDPS  537
+              S  P ++NV+ DP+
+Sbjct  530  IQSRKPTIINVVIDPA  545
+
+
+>P0DP90 Acetolactate synthase isozyme 2 large subunit OS=Escherichia 
+coli (strain K12) OX=83333 GN=ilvG PE=1 SV=1
+Length=548
+...
+```
+
+This output is hard to parse, so we add a flat `-outfmt 7` to print tab-separated output with comments like so
+
+```
+% blastp -query ilvG.bacteria.prot.fa -db EcoliO157.uniprot.fa -outfmt 7  -evalue 1e-10 
+# BLASTP 2.10.1+
+# Query: sp|P66947|ILVG_MYCBO Probable acetolactate synthase OS=Mycobacterium bovis (strain ATCC BAA-935 / AF2122/97) OX=233413 GN=ilvG PE=3 SV=1
+# Database: EcoliO157.uniprot.fa
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 7 hits found
+sp|P66947|ILVG_MYCBO	P0AFI0	30.576	556	356	14	1	537	1	545	4.20e-57	197
+sp|P66947|ILVG_MYCBO	P0DP90	27.122	542	361	15	11	535	1	525	1.12e-39	149
+sp|P66947|ILVG_MYCBO	P00893	26.902	539	361	12	9	522	2	532	1.52e-39	149
+sp|P66947|ILVG_MYCBO	P08142	25.091	550	384	10	2	535	4	541	5.05e-39	147
+sp|P66947|ILVG_MYCBO	P0AEP7	26.460	548	365	12	21	535	14	556	2.98e-36	139
+sp|P66947|ILVG_MYCBO	P0DP89	28.615	325	219	6	11	326	1	321	3.59e-28	112
+sp|P66947|ILVG_MYCBO	P07003	24.539	542	362	14	17	534	9	527	1.40e-22	98.6
+# BLAST processed 1 queries
+```
+
+We can send the output to a file with `-out ilvG.bacteria.prot.fa.blastp.out`
+
+```
+% blastp -query ilvG.bacteria.prot.fa -db EcoliO157.uniprot.fa -outfmt 7 -out ilvG.bacteria.prot.fa.blastp.out  -evalue 1e-10 
+%
+```
+
+
+
+Here's an example of what we'd run in the terminal. You can think of this as a shell script.
+
+```bash
+#!/usr/bin/env zsh
+
 # first you make a blast database from the fasta file of the sequences 
 #you want to blast against (target or subject sequences)
 makeblastdb -in EcoliO157.uniprot.fa -dbtype prot -parse_seqids
@@ -459,7 +607,7 @@ It's a good idea to make alias for python3 -m pdb  in .profile. How would we do 
 
 ### Write bigger python coding projects? 
 
-PyCharm An ok IDE. People also like sublime.
+VS Code
 
 ### Tell if my code is slow
 
