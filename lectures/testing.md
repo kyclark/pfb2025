@@ -318,7 +318,7 @@ def test_stdout(capsys):
 
 
 
-#### A warning about floating-point values
+#### Caveat: comparing floating-point values
 
 Because computers represent all characters as binary arrays of 0s and 1s (a base-2 system), floating-point number representation (in base-10 system) and calculations can be imprecise. Consider the following case:
 
@@ -468,7 +468,29 @@ When writing tests, ask yourself:
 
 
 
-## Using GitHub Copilot to Write Tests
+## Using GitHub Copilot
+
+### Installing the GitHub Copilot VSCode extension
+
+To install the GitHub Copilot extension in VSCode, press `command`+`shift`+`P` to open the command palette. Then type "Install Extensions" and press ` return`.
+
+[CopilotInstall1]()
+
+In the Extensions: Marketplace search bar, search "Copilot". Click the blue `Install` button next to either of the "GitHub Copilot" extensions (installing one installs both).
+
+[CopilotInstall2]()
+
+Copilot's walk-through checklist may appear in the main panel. Click the "Mark Done" text on the bottom left to proceed.
+
+ 
+
+[CopilotChat]()
+
+A Copilot Chat panel should now be open on the right-hand side. If it is not, you can open it by pressing `command`+`shift`+`I`. 
+
+
+
+### Writing tests with GitHub Copilot
 
 Carefully designing and writing all these test functions is a lot of work, but there is a good way to automate the most repetitive parts of the task. If you're using GitHub Copilot (in VSCode or other IDEs):
 
@@ -507,19 +529,6 @@ Carefully designing and writing all these test functions is a lot of work, but t
         """
     ```
 
-    
-
-
-## Summary
-
-| Concept               | Description                                                 |
-| --------------------- | ----------------------------------------------------------- |
-| **Functional Test**   | Tests that check if the software behaves as expected.       |
-| **Unit Test**         | Tests a single, small piece of code (e.g. a function).      |
-| **Parametrize**       | Efficient way to test many inputs with the same test logic. |
-| **Exception Testing** | Ensures your function fails properly with bad inputs.       |
-| **Output Capture**    | Tests what the function prints to the screen.               |
-| **Conditional Skips** | Avoid running tests in unsupported environments.            |
 
 
 
