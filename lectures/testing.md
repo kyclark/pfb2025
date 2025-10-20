@@ -2,46 +2,45 @@
 
 ## Introduction
 
-If you've ever run someone else's script to process sequencing data, generate plots, or calculate statistics on your experimental data and then wondered if the output is actually correct, this lecture is for you.
+If you've ever run a script to do some analysis and then wondered if the output is actually correct, this lecture is for you.
 
-One of the most overlooked but critical parts of writing reliable software for biology and bioinformatics is software testing. 
+One of the most overlooked, but critical, parts of writing reliable software for biology and bioinformatics is software testing. 
 
-**Why test your code?** Would you trust experimental results if the protocol wasn't validated? What about a protocol that doesn't yield repeatable results? Of course not. You’d expect controls, validation, and reproducibility. So, why not treat your data analysis scripts the same way? *Scripts are methods. Validate your methods*.
+**Why test your code?** Would you trust experimental results if the protocol wasn't validated? What about a protocol that doesn't yield repeatable results? Of course not. You’d expect controls, validation, and reproducibility. So, we should treat our data analysis scripts the same way. **Scripts are methods. Validate your methods**.
 
-In bioinformatics, and software development in general, we write code to test code. This typically takes the form of scripts (i.e., "test scripts") and functions (i.e., "test functions") that are written to perform tests on other script or module files — and the functions/classes they contain — using known inputs and comparing to expected outputs. More details about this are discussed below. Writing test scripts requires more up-front effort, but there are many advantages to writing them and test scripts save you much more effort in the long run.
+In bioinformatics, and software development in general, we write code to test code using known inputs and comparing to expected outputs. This typically takes the form of scripts (i.e., "test scripts") and functions (i.e., "test functions") that are written to perform tests on other script or module files — and the functions/classes they contain . More details about this are discussed below. Writing test scripts requires more up-front effort, but there are many advantages to writing them and test scripts save you much more effort in the long run.
 
 Here are specific reasons to write test scripts to test your code:
 
 1. **Catch bugs early, catch them fast**
 
-   - Writing test scripts early in your software development cycle helps catch bugs early; test script can be run after each change!
+   - Writing test scripts early in your software development cycle helps catch bugs early; tests should be run after each code change (=commit)!
    - The sooner you catch bugs, the easier they are to fix (especially in large, complex projects).
-
    - When you're still in the coding mindset, it's quicker to understand what went wrong and write fixes.
-   - Consequences of bugs are minimal early in development, in time and grant money.
-
+   
 2. **Tests document expected behavior**
 
    - Tests serve as living documentation for your code. They show what inputs your code expects and what outputs it should return.
      
-- Future you (or collaborators or reviewers) can quickly understand what your code is supposed to do by examining how your code is used in tests.
-
+   
+   - Future you (or collaborators or reviewers) can quickly understand what your code is supposed to do by examining how your code is used in tests.
+   
 
 3. **Code with confidence**
    - Want to optimize or change how your code works? Run your test suite. If all tests pass, your changes (likely) haven’t broken anything.
-   - Even small changes can introduce bugs or cause other unexpected problems, test scripts can reduce the chance of surprises.
+   - Even small changes can introduce bugs or cause other unexpected problems, running and passing tests reduces the chance of this.
 
 
 4.  **Test scripts are better than manual guessing/checking**
-- Test scripts can run more tests more consistently, repeatably, and quickly than you can manually.
+    - Test scripts run tests more consistently, repeatably, and quickly than you can on your own.
     - Large, complex projects also tend to be complex to debug, test scripts help you narrow in on where the problem is.
-- Stop copy-pasting test inputs into a terminal or IDE, automate and let the computer test itself.
 
 
 5.  **Avoid incorrect conclusions**
 
-    - In science, making important decisions based on buggy code translates into wasted time and resources.
-    - Incorrect results attributed to buggy code could lead to publication retractions and damaged reputation.
+    - In scientfic computing, your code needs to run correctly and produce the right answer. Kind of correct isn't good enough.
+    -  Importanly, making decisions based on incorrect analysis wastes your time and resources.
+    - Incorrect results can lead to publication retractions and damaged reputation.
     
     
 
@@ -71,9 +70,9 @@ There are a variety of software available to perform unit testing in Python, the
 
 All you need to do is:
 
-- Install it (`micromamba install pytest`)
+- Install it with e.g.`micromamba install pytest`
 
-- Write scripts or functions that start with `test_`. For example, `test_myscript.py`, which might contain 
+- Write scripts or functions that start with `test_`. For example, the file `test_myscript.py`, might contain a series of tests that verify `mysscript.py` works correctly. Or, you might write a function like this:
 	```python
 	def test_negate():
 	    # test code
@@ -265,7 +264,7 @@ def test_negate_positive_range(i):
     assert observed == expected, 'expected negative output ({expected}), got ({observed})'
 ```
 
-🔍 **Explanation:**
+**Explanation:**
 
 - The `@pytest.mark.parametrize("i", range(50))` decorator tells `pytest` to run this test 50 times.
 
@@ -285,7 +284,7 @@ def test_negate_negative_range(i):
     assert observed == expected, 'expected positive output ({expected}), got ({observed})'
 ```
 
-🔍 **Explanation:**
+**Explanation:**
 
 - Same as before, but this time we check that negative inputs are negated to positive values.
 
@@ -308,7 +307,7 @@ def test_stdout(capsys):
     assert captured.err == ''
 ```
 
-🔍 **Explanation:**
+ **Explanation:**
 
 - `capsys` is a special `pytest` fixture that captures stdout and stderr.
 - `info("hello")` is the function being tested, and it just prints text to stdout.
@@ -336,14 +335,10 @@ False
 Therefore, when handling floating-point values, it is unsafe to check that two floating point values are exactly equal. Instead, we must ask whether they are *approximately equal* to within some tolerance:
 
 ```python
-# use the built-in math module:
->>> from math import isclose
->>> isclose(0.1 + 0.2, 0.3, rel_tol=1e-6)
-True
-
-# pytest provides a similar function:
+# pytest provides an approx() function:
 >>> import pytest
 >>> pytest.approx(0.1 + 0.2, rel=1e-6) == 0.3
+True
 ```
 
 
@@ -356,7 +351,7 @@ For simple scripts, it's most convenient to write your test functions in the sam
 $ pytest ./myscript.py
 ```
 
-For larger coding projects (involving multiple module files, etc.), it's better to write your test functions in separate, dedicated `test_*.py` scripts. Various `pytest` invokations are possible:
+For larger coding projects (involving multiple module files, etc.), it's better to write your test functions in separate, dedicated `test_*.py` scripts. Various `pytest` invocations are possible:
 
 ```python
 # Point pytest directly to a test script file 
@@ -446,8 +441,8 @@ FAILED myscript.py::test_negate_failure - AssertionError: message describing exp
 
 ### 2. Make tests small and specific
 
-- One condition per test is ideal. A greater number of granular tests helps pinpoint exactly what’s broken.
-- Create *small* datasets (e.g. short FASTA files) and compute expected output(s) by hand or by using a trusted tool. *If the expected output for the test input cannot be calculated by hand, the dataset is not small enough.*
+- Set up one condition per test. A greater number of fine-grained tests helps pinpoint exactly what’s broken.
+- Create **small**, but realistic datasets (e.g. short FASTA files) and compute expected output(s) by hand or by using a trusted tool. 
 
 ### 3. Think defensively
 
@@ -459,24 +454,26 @@ When writing tests, ask yourself:
 
 ### 4. Cover edge cases
 
-- Good tests aren’t just about the happy path, they catch unexpected behavior.
-- If a bug is found, write test cases for it *prior* to writing a fix. Afterward, write your bug fix and run the tests; this ensures your changes actually fix the original issue.
+- Good tests aren’t just about the easy or obvious options, they should push the envelope to catch unexpected behavior.
+- If a bug is found, write test cases for it *prior* to writing a fix. Afterwards, write your bug fix and run the tests; this ensures your changes actually fix the original issue.
 
 ### 5. Report *why* the failure occurred
 
 -  Good tests include failure messages that report expected input(s)/output(s) and those given/received. This gives you better hints for why your code failed and how to fix it.
 
+## Getting help writing tests with GitHub Copilot
 
+Writing a complete set of useful tests takes thinking power and writing a few dozen functions. This quickly gets repetitive, requires a lot of attention to detail, and can seem like a daunting task. An AI extension called Copilot can be installed in VS Code and it helps with simple coding. A good use of this tool is to write test function code based on a prompt you provide that carefully and completely describes the test you want to add.
 
-## Using GitHub Copilot
+Let's see how to install Copilot.
 
 ### Installing the GitHub Copilot VSCode extension
 
 1. To install the GitHub Copilot extension in VSCode, press `command`+`shift`+`P` to open the command palette. Then type "Install Extensions" and press ` return`.
-   ![CopilotInstall1](./testing.assets/CopilotInstall1.png)
+   <img src="./testing.assets/CopilotInstall1.png" alt="CopilotInstall1" style="zoom:40%;" />
 
 2. In the left-side "Extensions: Marketplace" search bar, search "Copilot": 
-   ![CopilotInstall1](./testing.assets/CopilotInstall2.png)
+   <img src="./testing.assets/CopilotInstall2.png" alt="CopilotInstall1" style="zoom:40%;" />
 
 3. Click the blue `Install` button next to either of the "GitHub Copilot" extensions (installing one installs both). Copilot's walk-through checklist may appear in the main panel. Click the "Mark Done" text on the bottom left to proceed.
    ![CopilotChat](./testing.assets/CopilotChat.png)
@@ -487,7 +484,7 @@ When writing tests, ask yourself:
 
 ### Writing tests with GitHub Copilot
 
-Carefully designing and writing all these test functions is a lot of work, but there is a good way to automate the most repetitive parts of the task. If you're using GitHub Copilot (in VSCode or other IDEs):
+As we've already noted, carefully designing and writing all these test functions is a lot of work, but there is a good way to automate the most repetitive parts of the task. If you're using GitHub Copilot (in VSCode or other IDEs):
 
 - As you write your script functions, you should prompt Copilot to write test functions for them.
 
@@ -495,7 +492,7 @@ Carefully designing and writing all these test functions is a lot of work, but t
 
 - They can help speed up test-writing, but:
   - Copilot doesn’t understand your function's intent and may write bad tests.
-  - You must *review tests carefully* before trusting the test logic.
+  - You must **review tests carefully** before trusting the test logic.
 
 - You can write better tests in Copilot using the following tips:
 
@@ -529,9 +526,9 @@ Carefully designing and writing all these test functions is a lot of work, but t
 
 ## Problem set
 
-Unless otherwise directed, write your test functions in the same script file as the functions being tested and run `pytest` on your scripts to run the tests.
+Generally, you will write your test functions in the same script file as the functions being tested and run `pytest` on your scripts to run the tests.
 
-1. Using the following function:
+1. Using the following simple function:
 
     ```python
     def gc_content(seq):
@@ -545,7 +542,7 @@ Unless otherwise directed, write your test functions in the same script file as 
     Write `pytest` unit tests for this function that:  
     - confirm GC content of `"GCGC"` is `1.0`.  
     - confirm GC content of `"ATAT"` is `0.0`.  
-    - confirm mixed content like `"ATGC"` gives `0.5`.  
+    - confirm GC content of `"ATGC"` gives `0.5`.  
     - confirm that empty string returns `0`.  
     - confirm that `"ATGXB"` raises a `ValueError`. 
 
