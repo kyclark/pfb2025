@@ -121,7 +121,7 @@ while.py 	 simonp
 while_else.py 	 simonp
 ```
 
-Printing files modified on or after the 20th October
+Printing files modified in October, on or after the 20th
 
 ```
 % ls -l | awk '$7 >= 20 && $6 == "Oct" {print $9 "\t" $3}'
@@ -145,7 +145,7 @@ wc -l mouse_R7385F_*fastq | awk '{print $1/4 "\t" $2}'
 Another example that counts how many reads align with score 60 or more (great alignment) to the first 5kb of the reference.
 
 ```
- samtools view /Users/simonp/src/samtools-1.14/test/mpileup/mpileup.2.bam | awk '$4 <=5000 && $5 >=60  {print $1 "\t" $2 "\t" $5}'  | wc -l
+samtools view /Users/simonp/src/samtools-1.14/test/mpileup/mpileup.2.bam | awk '$4 <=5000 && $5 >=60  {print $1 "\t" $2 "\t" $5}'  | wc -l
 ```
 
 #### regular expressions in awk
@@ -181,7 +181,7 @@ To get these changes, `source ~/.profile` or `source ~/.zshrc` or open a new win
 
 ## Workflows and approaches
 
- ### Saving time and effort.
+### Saving time and effort.
 
 Your coding day is time spent doing these things:
 
