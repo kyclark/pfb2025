@@ -1,4 +1,6 @@
-# Bioinformatics and Useful Tools
+# Really Useful Tools and Bioinformatics Pipelines
+
+We're going to review ways to get help, and dive into more advanced unix programming. Then we'll see how to design and construct bioinformatics pipelines and think about running them.
 
 ### Getting help
 
@@ -83,6 +85,7 @@ How could you take a long file listing and print out the owner of each file?
 
 ```bash
 % ls -l
+total 19664
 -rw-r--r--  1 simonp  staff  312 Oct 20 11:05 scope_global.py
 -rw-r--r--  1 simonp  staff  201 Oct 20 11:03 scope_global.py~
 -rw-r--r--  1 simonp  staff  323 Oct 20 10:40 scope_w_function.py
@@ -93,7 +96,7 @@ How could you take a long file listing and print out the owner of each file?
 
 ```
 
-Here are the column variables explicitly. This is not shell output. Just a picture.
+To get the value of a scalar variable in unix tools, you prefix the variable name with a dollar sign. `$1` is the value in the first column of the input, `$i` is the value stored in the variable `i`. Here are the column variables explicitly. This is not shell output. Just a picture.
 
 ```
 $1         $2 $3      $4     $5  $6  $7 $8    $9
@@ -104,16 +107,27 @@ We want to print the file and the owner. Find the variables. The order can be wh
 
 `awk '{print $9 "\t"  $3 }'`
 
+```
+while_else.py      simonp
+```
+
 Note space-separated values would be coded like so
 
 `awk  '{print $9,  $3 }'`
 
-How do we get the long listing? `ls -l`
+```
+while_else.py simonp
+```
+
+
+
+Recall, how do we get the long listing? `ls -l`. Note also the first line of `ls -l` output is `total 19664`
 
 Put these together with our friend pipe `|` and add a tab between columns
 
 ```
-% ls -l | awk '{print $9 "\t"  $3}'   # no commas!! why??
+% ls -l | awk 'BEGIN{print "filename\towner"} $1 != "total" {print $9 "\t"  $3}'    # no commas!! why??
+filename	owner
 scope_global.py 	 simonp
 scope_global.py~ 	 simonp
 scope_w_function.py 	 simonp
@@ -219,7 +233,7 @@ filesize and md5 checksums
 
 ## Designing and Implementing a Bioinformatics Pipeline
 
-Say you want to automate blast runs. Here's an example of what we'd run in the terminal.
+Say you want to automate blast runs. Your first challenge is to come up with an exact step by step recipe of how you would run a single blast job from the command line. We skip several hours of reading, research, trial and error for the sake of teaching. Here's an example of what we'd run in the terminal.
 
 ```
 # first you make a blast database from the fasta file of the sequences 
@@ -404,14 +418,7 @@ Organism data bases, beware data quality: some are excellent, some not so well r
 
 ### Write web apps
 
-```python
-import cgi
-import cgitb  # gives helpful error messages
-cgitb.enable()
-
-form = cgi.FieldStorage()  # get parameters
-```
-See also Flask python library
+See Flask python library
 
 ### Debug my script
 
