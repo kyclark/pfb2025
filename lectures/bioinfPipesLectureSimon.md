@@ -10,7 +10,7 @@ Help is available inside python interactive shell
 ```python
 >>>help()
 ```
-Just like for `man`, help text appears inside a pager like `more` or `less`.  You can use the following commands: 
+Just like for `man`, help text appears inside a pager like `more` or `less`.  You can use the following commands:  
 space -> next page  
 b -> back a page  
 return -> next line  
