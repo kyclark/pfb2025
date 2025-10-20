@@ -11,11 +11,13 @@ Help is available inside python interactive shell
 >>>help()
 ```
 Just like for `man`, help text appears inside a pager like `more` or `less`.  You can use the following commands:  
-space -> next page  
-b -> back a page  
+```
+space  -> next page  
+b      -> back a page  
 return -> next line  
-/ -> search for a string  
-q quits the pager  
+/      -> search for a string  
+q      -> quits the pager
+```
 
 ```
 >>> help(str)
