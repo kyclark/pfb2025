@@ -472,21 +472,16 @@ When writing tests, ask yourself:
 
 ### Installing the GitHub Copilot VSCode extension
 
-To install the GitHub Copilot extension in VSCode, press `command`+`shift`+`P` to open the command palette. Then type "Install Extensions" and press ` return`.
+1. To install the GitHub Copilot extension in VSCode, press `command`+`shift`+`P` to open the command palette. Then type "Install Extensions" and press ` return`.
+   ![CopilotInstall1](./testing.assets/CopilotInstall1.png)
 
-[CopilotInstall1]()
+2. In the left-side "Extensions: Marketplace" search bar, search "Copilot": 
+   ![CopilotInstall1](./testing.assets/CopilotInstall2.png)
 
-In the Extensions: Marketplace search bar, search "Copilot". Click the blue `Install` button next to either of the "GitHub Copilot" extensions (installing one installs both).
+3. Click the blue `Install` button next to either of the "GitHub Copilot" extensions (installing one installs both). Copilot's walk-through checklist may appear in the main panel. Click the "Mark Done" text on the bottom left to proceed.
+   ![CopilotChat](./testing.assets/CopilotChat.png)
 
-[CopilotInstall2]()
-
-Copilot's walk-through checklist may appear in the main panel. Click the "Mark Done" text on the bottom left to proceed.
-
- 
-
-[CopilotChat]()
-
-A Copilot Chat panel should now be open on the right-hand side. If it is not, you can open it by pressing `command`+`shift`+`I`. 
+4. A Copilot Chat panel should now be open on the right-hand side. If it is not, you can open it by pressing `command`+`shift`+`I`. 
 
 
 
