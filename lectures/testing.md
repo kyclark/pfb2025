@@ -573,7 +573,9 @@ Generally, you will write your test functions in the same script file as the fun
 
     - confirms the string `'not-a-number'` returns `False`.
 
-5. Using an AI (such as Github Copilot, ChatGPT, etc.), write unit tests for the DNA sequence class you wrote for the Python 11 problem set. Write your test functions in a separate `test_` script that imports your sequence class and performs tests on its methods.
+5. WRITE TESTS FOR THE ABOVE NUMERIC TESTING FUNCTION with AI
+
+6. CHALLENGE/BONUS QUESTION: Using an AI (such as Github Copilot, ChatGPT, etc.), write unit tests for the DNA sequence class you wrote for the Python 11 problem set. Write your test functions in a separate `test_` script that imports your sequence class and performs tests on its methods.
 
     - Look carefully at all the unit test inputs and expected outputs. Are they correct?
 
@@ -595,9 +597,9 @@ Generally, you will write your test functions in the same script file as the fun
       2. Ask AI to write your tests. 
       3. Look carefully at the tests it produced. Are they correct (correct frames, length divisible by three, reverse-strand sequence is correctly reverse complemented, etc.)?
       4. Next, write the code to extract the six reading frames as a list of sequence strings (as described in the stub above). Test your code by running `pytest` on your test class methods.
-    
+
     - Lastly, do the same for a new method called `six_frames_aa` that outputs all six reading frames as a list of six amino acid sequences: 
-    
+
       1. Write a method stub (include a description of what the method does, input arguments, returned values, and examples).
       2. Ask AI to write your tests.
       3. Check the correctness of the tests(!).
