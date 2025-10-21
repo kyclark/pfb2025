@@ -77,7 +77,7 @@ Generally, you will write your test functions in the same script file as the fun
         4. Next, write the code to extract the six reading frames as a list of sequence strings (as described in the stub above). Test your code by running `pytest` on your test class methods.
 
 2. Lastly, do the same for a new method called `six_frames_aa` that outputs all six reading frames as a list of six amino acid sequences: 
-  1. Write a method stub (include a description of what the method does, input arguments, returned values, and examples).
-  2. Ask AI to write your tests.
-  3. Check the correctness of the tests!
-  4. *Then* write the method code. Run `pytest` on your test script to test your class methods. 
+    1. Write a method stub (include a description of what the method does, input arguments, returned values, and examples).
+    2. Ask AI to write your tests.
+    3. Check the correctness of the tests!
+    4. *Then* write the method code. Run `pytest` on your test script to test your class methods. 
