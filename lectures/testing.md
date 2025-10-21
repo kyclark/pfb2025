@@ -22,10 +22,8 @@ Here are specific reasons to write test scripts to test your code:
 
    - Tests serve as living documentation for your code. They show what inputs your code expects and what outputs it should return.
      
-   
    - Future you (or collaborators or reviewers) can quickly understand what your code is supposed to do by examining how your code is used in tests.
    
-
 3. **Code with confidence**
    - Want to optimize or change how your code works? Run your test suite. If all tests pass, your changes (likely) haven’t broken anything.
    - Even small changes can introduce bugs or cause other unexpected problems, running and passing tests reduces the chance of this.
@@ -70,7 +68,7 @@ There are a variety of software available to perform unit testing in Python, the
 
 All you need to do is:
 
-- Install it with e.g.`micromamba install pytest`
+- Install it with e.g. `micromamba install pytest`
 
 - Write scripts or functions that start with `test_`. For example, the file `test_myscript.py`, might contain a series of tests that verify `mysscript.py` works correctly. Or, you might write a function like this:
 	```python
@@ -198,13 +196,13 @@ def test_negate_noarg():
 
 ### When simple test design doesn't work
 
+We'd reasonably expect `negate` to throw an error (in this case, a `TypeError`) when given non-numeric input types; however, this test fails:
+
 
 ```python
 def test_negate_nan():
     try:
-        observed = negate('this-is-not-a-number')  # oddly, -1 * str returns an empty 
-                                                   # string and a TypeError is *not*
-                                                   # raised
+        observed = negate('this-is-not-a-number')  # a TypeError is *not* raised
     except TypeError:
         return
     assert False, 'expected TypeError exception, got ({observed})'
@@ -212,13 +210,17 @@ def test_negate_nan():
 
 **Explanation:**
 
-- Same idea as above: we pass a string value that cannot be converted to a number.
+- We pass a string value that cannot be converted to a number.
 
-- We expect a `TypeError` to be raised, but it isn't. Python returns an empty string without an error, but this is incorrect behavior for numeric negation. 
+- We expect a `TypeError` to be raised, but it isn't. Our `negate` function, instead, returned an unexpected value: an empty string. This is incorrect behavior for numeric negation.
+    ```python
+    >>> negate('this-is-not-a-number')
+    ''
+    ```
 
 - Because the `TypeError` is not raised, it is not caught by the `except TypeError` condition. The test then evaluates the `assert False, ...` line, and the test fails. 
 
-  
+
 
 Our original function failed the test, so we must fix the function definition to catch non-numeric inputs. Here's a new function definition:
 
@@ -245,7 +247,7 @@ def test_negate_nan():
 **Explanation:**
 
 - We modified our `negate` function to `try` casting input values to `float` to check if they resemble a numeric value (e.g. `float('1.0')` converts the string value `'1.0'` to a floating point `1.0`, but cannot convert `e346` to `float`)
-- If `float(value)` cannot convert an input to a floating-point value, it raises a `ValueError`, catch it and instead raise a `TypeError`, because the user gave us a variable of bad *type*.
+- If `float(value)` cannot convert an input to a floating-point value, it raises a `ValueError`, `except` catches it. We instead raise a `TypeError`, because the user gave us a variable of bad *type*.
 - Our modified `negate` function now passes the `test_negate_nan` test function.
 
 
@@ -277,10 +279,10 @@ def test_negate_positive_range(i):
 
 
 ```python
-@pytest.mark.parametrize("i", range(50))
+@pytest.mark.parametrize("i", [-3.1, -0.001, -1e-6, -1+5j])
 def test_negate_negative_range(i):
-    expected = i
-    observed = negate(-1 * i)
+    expected = -1 * i
+    observed = negate(i)
     assert observed == expected, 'expected positive output ({expected}), got ({observed})'
 ```
 
@@ -363,7 +365,7 @@ $ pytest ./test_myscript.py
 $ pytest test/
 
 # Recursively search for test_*.py files in the
-# test directory, then run pytest on all those 
+# current directory, then run pytest on all those 
 # that were found:
 $ pytest
 ```
@@ -461,6 +463,8 @@ When writing tests, ask yourself:
 
 -  Good tests include failure messages that report expected input(s)/output(s) and those given/received. This gives you better hints for why your code failed and how to fix it.
 
+
+
 ## Getting help writing tests with GitHub Copilot
 
 Writing a complete set of useful tests takes thinking power and writing a few dozen functions. This quickly gets repetitive, requires a lot of attention to detail, and can seem like a daunting task. An AI extension called Copilot can be installed in VS Code and it helps with simple coding. A good use of this tool is to write test function code based on a prompt you provide that carefully and completely describes the test you want to add.
@@ -496,17 +500,19 @@ As we've already noted, carefully designing and writing all these test functions
 
 - You can write better tests in Copilot using the following tips:
 
-  - Start your Copilot Chat prompt with "*Write pytest-style unit tests for X function in myscript.py...*"
+  - Be as explicit as possible when writing your prompts.
 
-  - By default Copilot with put test functions in a separate test script. To include them in the same script containing the functions being tested, you have to tell Copilot explicitly (e.g., "*... put the test functions in myscript.py...*")
+  - Start your Copilot Chat prompt with *"Write pytest-style unit tests for X function in myscript.py..."*
+
+  - By default Copilot with put test functions in a separate test script. To include them in the same script containing the functions being tested, tell Copilot to do so (e.g., *"... put the test functions in myscript.py..."*)
 
   - Write doc strings for each function. This not only provides human users more context about how your function(s) work, it helps Copilot as well. Describe:
-
+  
     - input arguments and their expected type(s)
     - output data type(s) returned
     - any exceptions raised and in what conditions
     - Include typical usecases as examples; Copilot will often include them as unit tests.
-
+  
     ```python
     def negate(value):
         """Negate numeric values
@@ -520,87 +526,9 @@ As we've already noted, carefully designing and writing all these test functions
         >>> negate('foo')   # raises TypeError exception
         """
     ```
+    
 
 
 
+### GitHub Copilot live demo
 
-## Problem set
-
-Generally, you will write your test functions in the same script file as the functions being tested and run `pytest` on your scripts to run the tests.
-
-1. Using the following simple function:
-
-    ```python
-    def gc_content(seq):
-        valid = {'A', 'C', 'G', 'T'}
-        if not set(seq).issubset(valid):
-            raise ValueError("Invalid characters in sequence")
-        if len(seq) == 0:
-            return 0
-        return (seq.count('G') + seq.count('C')) / len(seq)
-    ```
-    Write `pytest` unit tests for this function that:  
-    - confirm GC content of `"GCGC"` is `1.0`.  
-    - confirm GC content of `"ATAT"` is `0.0`.  
-    - confirm GC content of `"ATGC"` gives `0.5`.  
-    - confirm that empty string returns `0`.  
-    - confirm that `"ATGXB"` raises a `ValueError`. 
-
-2. Modify your script to add tests of the `gc_content` function for the following inputs (below). Re-run `pytest` on your updated script. Do these new tests pass or fail? Are the inputs below reasonable inputs? Afterward, modify the `gc_content` function so that `pytest` passes all tests. Confirm your modified `gc_content` function can:
-
-    - Calculate the GC content of `"ATGNNNTAGC"` as `0.3`.
-    - Calculate the GC content of the lower-cased sequence `"gattacaa"` as `0.25`. 
-
-3. Write a function to reverse complement a DNA sequence, then write unit tests for it that:
-
-    - Confirms an all-lower-case input sequence is correctly reverse-complemented. 
-
-    - Confirms an all-upper-case input sequence is correctly reverse-complemented.
-
-    - Confirms a mixed-case input sequence is correctly reverse-complemented.
-
-    - Confirms an input sequence containing non-`ATCGN` characters triggers an exception.
-
-4. Write a function that determines whether an input value is a number and outputs a boolean (`True`/`False`) value, then write unit tests for it that:
-
-    - confirms the number `1.3` returns `True`.
-
-    - confirms the string `'0'` returns `True`.
-
-    - confirms the string `'1e-3'` returns `True`.
-
-    - confirms the string `'1.5+2j'` (a complex number) returns `True`.
-
-    - confirms the string `'not-a-number'` returns `False`.
-
-5. WRITE TESTS FOR THE ABOVE NUMERIC TESTING FUNCTION with AI
-
-6. CHALLENGE/BONUS QUESTION: Using an AI (such as Github Copilot, ChatGPT, etc.), write unit tests for the DNA sequence class you wrote for the Python 11 problem set. Write your test functions in a separate `test_` script that imports your sequence class and performs tests on its methods.
-
-    - Look carefully at all the unit test inputs and expected outputs. Are they correct?
-
-    - Now, we will have AI write more tests for a new method you will add to your DNA sequence class. 
-
-      1. Copy the following method stub (which contains the `def` line and a doc string, but no executable code block) into your code. 
-
-          ```python
-          def six_frames_nt(self):
-              """Outputs all six reading frames (3 forward, 3 reverse complement) as nucleotide seqences. 
-              Arguments: None
-              Returns: list of six strings, each string is a reading frame (forward 0, 1, 2; reverse 0, 1, 2).
-          
-              Examples:
-              >>> sixframes_nt = Sequence("id1", "ATGCGTTAG").six_frames_nt()
-              """
-          ```
-
-      2. Ask AI to write your tests. 
-      3. Look carefully at the tests it produced. Are they correct (correct frames, length divisible by three, reverse-strand sequence is correctly reverse complemented, etc.)?
-      4. Next, write the code to extract the six reading frames as a list of sequence strings (as described in the stub above). Test your code by running `pytest` on your test class methods.
-
-    - Lastly, do the same for a new method called `six_frames_aa` that outputs all six reading frames as a list of six amino acid sequences: 
-
-      1. Write a method stub (include a description of what the method does, input arguments, returned values, and examples).
-      2. Ask AI to write your tests.
-      3. Check the correctness of the tests(!).
-      4. *Then* write the method code. Run `pytest` on your test script to test your class methods. 
