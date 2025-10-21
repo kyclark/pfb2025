@@ -2,8 +2,8 @@
 
 ## Customizing your VS Code
 
-Ask TAs about changing your python version in VS Code to get VS code to recognize the BioPython instllation.      
-Ask TAs about installing VS Code Python extentions.   
+Ask TAs about changing your python version in VS Code to get VS code to recognize the BioPython installation.      
+Ask TAs about installing VS Code Python extensions.   
 
 ## FASTA Parser
 
