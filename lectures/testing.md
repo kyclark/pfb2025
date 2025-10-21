@@ -226,7 +226,7 @@ Our original function failed the test, so we must fix the function definition to
 
 ```python
 def negate(value):
-	  try:
+    try:
         float(value)
     except ValueError:
         raise TypeError(f"invalid input type {type(value)}")
