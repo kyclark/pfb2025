@@ -148,6 +148,6 @@ __Let's take a closer look__
 
 
 ## Protein Homology -- Bill Pearson
-  - [Lecture](Sequence_homology/cshl_pfb_25a.pdf)
-  - [Lecture](Sequence_homology/cshl_pfb_25b.pdf)
+  - [Lecture 1](Sequence_homology/cshl_pfb_25a.pdf)  
+  - [Lecture 2](Sequence_homology/cshl_pfb_25b.pdf)  
   - [Workshop](Sequence_homology)
