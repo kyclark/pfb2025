@@ -11,7 +11,7 @@ Eric Ross
 ## Pipelines -- Simon Prochnik
 In modern bioinformatics research, designing and managing data‑analysis pipelines is key to achieving reproducibility, scalability, and maintainability. This lecture covers pipeline engineering in computational biology: how to structure, automate, and maintain workflows that process biological data from raw inputs to interpretable results.
 
-#### Audience
+__Audience__ 
 This lecture is intended for students, researchers, or bioinformaticians who:
 - perform computational analyses of biological data (for example sequence data, “omics” data, or variant data) and want to design workflows that are robust and reproducible;
 - are comfortable writing code or scripts (in Python, R, or shell), and using command‑line tools, but may not yet have formal experience building full end‑to‑end pipelines or workflow systems;
