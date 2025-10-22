@@ -9,8 +9,8 @@ Eric Ross
 # Workshops and Overviews
 
 ## BioPython -- Sofia Robb
-  - [Lecture]()
-  - [Workshop]()
+  - [Lecture](biopython/biopython.md)
+  - [Workshop](biopython)
 
 ## Pipelines -- Simon Prochnik
   - []()
