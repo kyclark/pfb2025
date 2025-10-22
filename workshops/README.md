@@ -9,7 +9,7 @@ Eric Ross
 # Workshops and Overviews
 
 ## BioPython -- Sofia Robb
-  - [Lecture](BioPython/BioPython.md)
+  - [Lecture](BioPython/biopython.md)
   - [Workshop](BioPython)
 
 ## Pipelines -- Simon Prochnik
@@ -17,7 +17,11 @@ Eric Ross
   - []()
 
 ## Package Managers  -- Jessen Bredeson
-  - [Lecture](https://github.com/prog4biol/pfb2025/blob/master/lectures/mamba.md)
+  - [Lecture](../lectures/mamba.md)
+
+## Pytest Testing  -- Jessen Bredeson
+  - [Lecture](../lectures/testing.md)
+  - [Problem Set](../problemsets/testing_problemset.md)
 
 ## Ethics and Responsibility in Bioinformatics -- Simon Prochnik
   - [Lecture]()
