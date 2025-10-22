@@ -2,9 +2,22 @@
 
 __Instructors__  
 Simon Prochnik  
-Sofia Robb     
+Sofia Robb   
+Jessen Bredeson  
+Eric Ross  
 
-# Workshops
+# Workshops and Overviews
+
+## BioPython -- Sofia Robb
+  - [Lecture]()
+  - [Workshop]()
+
+## Pipelines -- Simon Prochnik
+  - []()
+  - []()
+
+## Package Managers  -- Jessen Bredeson
+  - [Lecture](https://github.com/prog4biol/pfb2025/blob/master/lectures/mamba.md)
 
 ## Ethics and Responsibility in Bioinformatics -- Simon Prochnik
   - [Lecture]()
