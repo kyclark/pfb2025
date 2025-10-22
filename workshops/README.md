@@ -13,11 +13,12 @@ Eric Ross
   - [Workshop](BioPython)
 
 ## Pipelines -- Simon Prochnik
-  - []()
-  - []()
+  - [Lecture](../lectures/bioinfPipesLectureSimon.md)
+  - Problem set: None
 
 ## Package Managers  -- Jessen Bredeson
   - [Lecture](../lectures/mamba.md)
+  - Problem set: None
 
 ## Pytest Testing  -- Jessen Bredeson
   - [Lecture](../lectures/testing.md)
