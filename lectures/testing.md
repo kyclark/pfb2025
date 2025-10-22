@@ -36,8 +36,8 @@ Here are specific reasons to write test scripts to test your code:
 
 5.  **Avoid incorrect conclusions**
 
-    - In scientfic computing, your code needs to run correctly and produce the right answer. Kind of correct isn't good enough.
-    -  Importanly, making decisions based on incorrect analysis wastes your time and resources.
+    - In scientific computing, your code needs to run correctly and produce the right answer. Kind of correct isn't good enough.
+    -  Importantly, making decisions based on incorrect analysis wastes your time and resources.
     - Incorrect results can lead to publication retractions and damaged reputation.
     
     

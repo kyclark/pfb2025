@@ -63,7 +63,7 @@ Generally, you will write your test functions in the same script file as the fun
 
           ```python
           def six_frames_nt(self):
-              """Outputs all six reading frames (3 forward, 3 reverse complement) as nucleotide seqences. 
+              """Outputs all six reading frames (3 forward, 3 reverse complement) as nucleotide sequences. 
               Arguments: None
               Returns: list of six strings, each string is a reading frame (forward 0, 1, 2; reverse 0, 1, 2).
           

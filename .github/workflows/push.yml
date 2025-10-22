@@ -1,0 +1,17 @@
+name: Push
+
+on:
+  push:
+    branches:
+      - '*'
+    tags:
+      - '*'
+
+jobs:
+  typos:
+    name: Check typos
+    runs-on: ubuntu-latest
+    steps:
+      - name: Spellcheck
+        uses: crate-ci/typos@master
+
