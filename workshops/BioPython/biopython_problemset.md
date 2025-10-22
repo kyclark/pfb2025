@@ -2,7 +2,7 @@
 
 ## Customizing your VS Code
 
-Ask TAs about changing your python version in VS Code to get VS code to recognize the BioPython installation.      
+Ask TAs about changing your python version in VS Code to get VS code to recognize the BioPython instllation.      
 Ask TAs about installing VS Code Python extentions.   
 
 ## FASTA Parser
@@ -59,7 +59,7 @@ seq4 0.37799043062200954
 
   
 3. Test your code with a small test set of 2 or 3 very short sequences.
-4. Run your code on [Python_08.fasta](Python_08.fasta)
+4. Run your code on [biopython.fasta](biopython.fasta)
 
 
 
