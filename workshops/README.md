@@ -19,13 +19,13 @@ This lecture is intended for students, researchers, or bioinformaticians who:
 
 You do not need to be an expert software engineer, but you should be familiar with basic programming, version control, and the concept of modular analysis.
 
-#### Goals
+__Goals__
 By the end of this lecture, you will be able to:
 - explain the key concepts behind pipeline‑based analysis: modularity, reproducibility, traceability, and automation;
 - design a pipeline workflow that connects raw data through intermediate steps to final outputs, with clear dependencies and execution logic;
 - implement a basic bioinformatics pipeline, execute it, monitor it, and maintain it;
 
-#### Scope
+__Scope__
 In this session we will focus on:
 - structuring pipeline components: defining the steps, specifying inputs and outputs, sequencing tasks, tracking dependencies;
 - integrating pipelines within reproducible research practices: parameterisation and modularisation;
@@ -41,14 +41,14 @@ Dive in:
 ## Package Managers  -- Jessen Bredeson
 In modern computational biology workflows, managing software dependencies and isolated environments is critical for reproducibility, portability, and efficiency. This workshop covers mamba — a lightweight, high‑performance package and environment manager — and shows how to integrate it into your research projects.
 
-#### Audience
+__Audience__
 This workshop is intended for students and researchers in the life sciences who:
 - already use or plan to use Python or R in their analyses, and 
 - have a basic familiarity with command‑line tools (for example, creating virtual environments or installing packages) but may not yet have deep experience with environment managers like mamba.
 
 You do not need to be an expert in package management or system administration.
 
-#### Goals
+__Goals__
 By the end of this session, you will be able to:
 - explain what mamba is, and how it differs from other environment tools (such as conda).
 - install mamba and create isolated environments for your analyses.
@@ -56,7 +56,7 @@ By the end of this session, you will be able to:
 - integrate mamba into reproducible workflows (for example in containers or shared projects).
 - recognise when mamba is the right tool for your workflow
 
-#### Scope
+__Scope__
 We will focus on:
 - installing `micromamba` on your system
 - creating, removing, and activating environments
@@ -73,7 +73,7 @@ Let’s get started.
 ## BioPython -- Sofia Robb
 In modern bioinformatics workflows, automating the processing, analysis, and interpretation of biological sequence data is essential for reproducible, scalable research. This workshop introduces Biopython — a comprehensive open‑source Python library tailored for computational biology and bioinformatics tasks — and shows how to leverage it for practical, real‑world biological data processing.
 
-#### Audience
+__Audience__
 This material is designed for researchers, graduate students, or advanced undergraduates who:
 - work with biological sequence data (DNA, RNA, protein) or structure data (PDB) and wish to automate analyses;
 - already have experience with Python programming (variables, loops, functions, modules) but may not have used domain‑specific bioinformatics libraries;
@@ -81,7 +81,7 @@ This material is designed for researchers, graduate students, or advanced underg
 
 You do not need to be a software engineer, nor an expert in algorithm design, but you should feel comfortable writing and running Python code.
 
-#### Goals
+__Goals__
 By the end of this workshop, you will be able to:
 - explain what Biopython is and what kinds of bioinformatics tasks it supports;
 - install and import Biopython into your workflow;
@@ -89,7 +89,7 @@ By the end of this workshop, you will be able to:
 - apply Biopython in practical workflows (e.g., sequence operations, alignments, structure parsing, file conversions) relevant to your research;
 - integrate these capabilities into reproducible code, increasing the reliability, transparency, and shareability of your analyses.
 
-#### Scope
+__Scope__
 In this session we will focus on:
 - setting up the development environment for Biopython (installation and basic import);
 - core modules and functions: working with sequence objects, reading/writing file formats, accessing biological databases programmatically;
@@ -106,21 +106,21 @@ To get started, follow the links below:
 ## Pytest Testing  -- Jessen Bredeson
 Software in computational biology and data‑science workflows must not only run, but run correctly, reliably, and reproducibly. This lecture covers testing — the methods and practices for systematically verifying that code does what it is supposed to do, and continues to do so as it evolves.
 
-#### Audience
+__Audience__
 This material is intended for students and researchers who:
 - are developing scripts, packages, or pipelines Python as part of their scientific work;
 - have basic programming experience (defining functions, using modules, working with version control) but may not yet have adopted disciplined testing practices;
 - value reproducibility, maintainability, and collaboration in code development.
 You do not need to be an expert in software engineering, but familiarity with running tools on the command line, and debugging will help.
 
-#### Goals
+__Goals__
 By the end of this lecture, you will be able to:
 - explain why testing matters in scientific software (e.g., correctness, regressions, reproducibility);
 - write and run automated tests for your code;
 - integrate testing into your development workflow using AI
 - adopt best practices for organizing, writing, and maintaining tests to support long‑term project health.
 
-#### Scope
+__Scope__
 In this session we will focus on:
 - the fundamentals of designing effective tests (what to test, how to structure tests, how to pick meaningful test cases);
 - practical Python tools and frameworks to write and execute tests;
