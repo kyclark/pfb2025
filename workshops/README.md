@@ -137,6 +137,24 @@ __Dive in__:
 
 
 ## Protein Homology -- Bill Pearson
+In computational biology, leveraging evolutionary relationships between sequences is key to inferring function, annotation, and structure. This two‑part workshop focuses on sequence homology — how to detect, interpret, and apply homologous relationships among biological sequences for research.
+
+__Goals__:  
+By the end of this two‑part workshop, you will be able to:
+- articulate what sequence homology means and why it matters for biological inference;
+- use key tools to identify homologous sequences across species or within gene families;
+- test hypotheses of homology and function via statistically significant excees similarity
+
+__Scope__:  
+In this workshop we will focus on:
+- the conceptual foundations of sequence homology: how sequence similarity arises, how to differentiate true homology from chance resemblance;
+- homology search (e.g., BLAST/FASTA/SSEARCH) and hypothesis testing
+- Exploring domains with local alignments
+- when the scoring matrix matters
+
+We will not cover every mathematical detail (e.g., full theory of substitution models, deep Bayesian phylogenetics) nor exhaustively survey all homology detection software. The emphasis is on practical, accessible methods you can apply in your own research.
+
+__Dive in__:  
   - [Lecture 1](Sequence_homology/cshl_pfb_25a.pdf)  
   - [Lecture 2](Sequence_homology/cshl_pfb_25b.pdf)  
   - [Workshop](Sequence_homology)
