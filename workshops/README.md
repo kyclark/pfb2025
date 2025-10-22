@@ -132,8 +132,8 @@ In these sessions we will focus on:
 We will not dive deeply into every tool available for either task (for example, we won’t exhaustively compare every k‑mer counter or every quantification engine). Nor will we develop full downstream statistical modelling (differential expression, network analysis) in this session. The focus is on giving you the build‑blocks: how to go from raw data to structured counts.
 
 __Dive in__:  
-  - [Lecture](https://github.com/trinityrnaseq/CSHLProgForBio/blob/main/rnaseq_slides_PFB2023.pdf)
-  - [Workshop](RNAseq)
+  - [Lecture](https://github.com/trinityrnaseq/CSHLProgForBio/blob/main/rnaseq_slides_PFB2025.pdf)  
+  - [Workshop](RNAseq)  
 
 
 ## Protein Homology -- Bill Pearson
