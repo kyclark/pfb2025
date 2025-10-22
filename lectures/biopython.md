@@ -299,8 +299,8 @@ parse(handle, format, alphabet=None)
     >>> from Bio import SeqIO
     >>> filename = "Fasta/sweetpea.nu"
     >>> for record in SeqIO.parse(filename, "fasta"):
-    ...    print("ID %s" % record.id)
-    ...    print("Sequence length %i" % len(record))
+    ...    print("ID {record.id}")
+    ...    print("Sequence length {len(record)}")
     ID gi|3176602|gb|U78617.1|LOU78617
     Sequence length 309
 
@@ -315,7 +315,7 @@ parse(handle, format, alphabet=None)
     >>> from Bio import SeqIO
     >>> from io import StringIO
     >>> for record in SeqIO.parse(StringIO(data), "fasta"):
-    ...     print("%s %s" % (record.id, record.seq))
+    ...     print(f"{record.id} {record.seq}")
     Alpha ACCGGATGTA
     Beta AGGCTCGGTTA
 
