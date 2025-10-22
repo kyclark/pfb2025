@@ -8,7 +8,7 @@ Eric Ross
 
 # Workshops and Overviews
 
-## BioPython -- Sofia Robb
+## BioPython -- Sofia Robb techer
   - [Lecture](BioPython/biopython.md)
   - [Workshop](BioPython)
 
