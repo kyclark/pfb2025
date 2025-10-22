@@ -113,6 +113,25 @@ __Dive in__:
 
 
 ## RNAseq -- Brian Haas
+In bioinformatics research, two fundamental operations form the backbone of many downstream analyses: (1) the counting of short sub‑sequences (k‑mers) in sequencing data, and (2) mapping reads to a reference and summarizing counts into expression measures. These two sessions cover those operations in turn: first, the exercise on k‑mer counting; and second, the exercise on aligned reads to expression quantification.
+
+__Goals__:  
+By the end of these two sessions, you will be able to:
+- explain what a k‑mer is and why k‑mer counting is useful (e.g., for quality control, genome size estimation, complexity analysis).
+- perform k‑mer counting on sequencing data, interpret the output (histograms, counts), and relate it to biological questions.
+- map reads to a reference genome or transcriptome, and understand how to convert aligned reads into gene‑ or transcript‑level counts (expression measures).
+- integrate these steps into a reproducible workflow: from raw reads → k‑mer summary → alignment → count matrix → downstream analysis.
+- recognise the shape of typical outputs and common pitfalls (e.g., uninformative k‑mer distributions, low mapping rates, mis‑specified annotation) and know how to respond.
+
+__Scope__:  
+In these sessions we will focus on:
+- the theory and practice of k‑mer counting: choosing k, running tools, generating histograms, interpreting results.
+- the workflow from aligned reads to expression: aligning reads, counting reads per gene/transcript, generating count tables suitable for statistical analysis.
+- best practices for reproducibility, including documenting steps, using scripts, versioning inputs/outputs.
+
+We will not dive deeply into every tool available for either task (for example, we won’t exhaustively compare every k‑mer counter or every quantification engine). Nor will we develop full downstream statistical modelling (differential expression, network analysis) in this session. The focus is on giving you the build‑blocks: how to go from raw data to structured counts.
+
+__Dive in__:  
   - [Lecture](https://github.com/trinityrnaseq/CSHLProgForBio/blob/main/rnaseq_slides_PFB2023.pdf)
   - [Workshop](RNAseq)
 
