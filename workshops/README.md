@@ -11,7 +11,7 @@ Eric Ross
 ## Pipelines -- Simon Prochnik
 In modern bioinformatics research, designing and managing data‑analysis pipelines is key to achieving reproducibility, scalability, and maintainability. This lecture covers pipeline engineering in computational biology: how to structure, automate, and maintain workflows that process biological data from raw inputs to interpretable results.
 
-__Audience__ 
+__Audience__   
 This lecture is intended for students, researchers, or bioinformaticians who:
 - perform computational analyses of biological data (for example sequence data, “omics” data, or variant data) and want to design workflows that are robust and reproducible;
 - are comfortable writing code or scripts (in Python, R, or shell), and using command‑line tools, but may not yet have formal experience building full end‑to‑end pipelines or workflow systems;
@@ -19,13 +19,13 @@ This lecture is intended for students, researchers, or bioinformaticians who:
 
 You do not need to be an expert software engineer, but you should be familiar with basic programming, version control, and the concept of modular analysis.
 
-__Goals__
+__Goals__  
 By the end of this lecture, you will be able to:
 - explain the key concepts behind pipeline‑based analysis: modularity, reproducibility, traceability, and automation;
 - design a pipeline workflow that connects raw data through intermediate steps to final outputs, with clear dependencies and execution logic;
 - implement a basic bioinformatics pipeline, execute it, monitor it, and maintain it;
 
-__Scope__
+__Scope__  
 In this session we will focus on:
 - structuring pipeline components: defining the steps, specifying inputs and outputs, sequencing tasks, tracking dependencies;
 - integrating pipelines within reproducible research practices: parameterisation and modularisation;
@@ -33,7 +33,7 @@ In this session we will focus on:
 
 We will not attempt to cover every workflow engine in existence, nor delve deeply into low‑level system tuning (e.g., HPC scheduling beyond basic integration). Instead, our focus is on practical, foundational pipeline practices that you can apply directly in your computational biology research.
 
-Dive in:
+__Dive in__  
   - [Lecture](../lectures/bioinfPipesLectureSimon.md)
   - Problem set: None
 
@@ -41,14 +41,14 @@ Dive in:
 ## Package Managers  -- Jessen Bredeson
 In modern computational biology workflows, managing software dependencies and isolated environments is critical for reproducibility, portability, and efficiency. This workshop covers mamba — a lightweight, high‑performance package and environment manager — and shows how to integrate it into your research projects.
 
-__Audience__
+__Audience__  
 This workshop is intended for students and researchers in the life sciences who:
 - already use or plan to use Python or R in their analyses, and 
 - have a basic familiarity with command‑line tools (for example, creating virtual environments or installing packages) but may not yet have deep experience with environment managers like mamba.
 
 You do not need to be an expert in package management or system administration.
 
-__Goals__
+__Goals__  
 By the end of this session, you will be able to:
 - explain what mamba is, and how it differs from other environment tools (such as conda).
 - install mamba and create isolated environments for your analyses.
@@ -56,7 +56,7 @@ By the end of this session, you will be able to:
 - integrate mamba into reproducible workflows (for example in containers or shared projects).
 - recognise when mamba is the right tool for your workflow
 
-__Scope__
+__Scope__  
 We will focus on:
 - installing `micromamba` on your system
 - creating, removing, and activating environments
@@ -65,7 +65,7 @@ We will focus on:
 
 We will not cover every advanced feature of mamba, or dive deeply into advanced packaging internals; our focus is on practical, reproducible use of mamba for research workflows. In the following sections, we will start by giving you a quick introduction to how mamba works, then walk through a live demonstration of environment setup
 
-Let’s get started.
+__Let’s get started__  
   - [Lecture](../lectures/mamba.md)
   - Problem set: None
 
@@ -98,7 +98,7 @@ In this session we will focus on:
 
 We will not exhaustively cover every Biopython module, nor dive into highly advanced topics like custom extension of Biopython internals, deep algorithmic optimizations, or extensive performance tuning. The emphasis is on getting you productive and confident with practical uses of Biopython in your research context.
 
-To get started, follow the links below:
+__To get started, follow the links below__  
   - [Lecture](BioPython/biopython.md)
   - [Workshop](BioPython)
 
@@ -128,7 +128,7 @@ In this session we will focus on:
 
 We will not cover exhaustive detail on every testing framework nor deep dive into all advanced topics (such as property‑based testing, mutation testing, or highly optimized test harnesses). Instead, our focus is practical, actionable testing guidance tailored to research‑oriented code.
 
-Let's take a closer look:
+__Let's take a closer look__ 
   - [Lecture](../lectures/testing.md)
   - [Problem Set](../problemsets/testing_problemset.md)
 
