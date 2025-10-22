@@ -7,7 +7,7 @@ Ask TAs about installing VS Code Python extentions.
 
 ## FASTA Parser
 
-1. Create a new FASTA parser that uses BioPython SeqIO (e.g. `from Bio import SeqIO`) ([review `SeqIO.parse` in notes](../lectures/biopython.md#read-a-fasta-file)) to print the sequence name, description, and sequence as tab delimited output
+1. Create a new FASTA parser that uses BioPython SeqIO (e.g. `from Bio import SeqIO`) ([review `SeqIO.parse` in notes](biopython.md#read-a-fasta-file)) to print the sequence name, description, and sequence as tab delimited output
 2. Add in some code to print out stats about your FASTA records in your multi-FASTA file:
    -  total number of sequences
    -  total number of nucleotides
@@ -59,7 +59,7 @@ seq4 0.37799043062200954
 
   
 3. Test your code with a small test set of 2 or 3 very short sequences.
-4. Run your code on [Python_08.fasta](../files/Python_08.fasta)
+4. Run your code on [Python_08.fasta](Python_08.fasta)
 
 
 
@@ -122,13 +122,13 @@ OR (just so you  know) -- Don't do both -- you can download and unpackage the [n
 
 
 1. Run `makeblastdb -dbtype prot -in s_paratyphi.prot.fa -parse_seqids` to create a custom BLAST database containing the Salmonella proteins. Run `makeblastdb -help` for more info on this command
-2. After you make your BLAST db with s_paratyphi.prot.fa, try to BLAST a protein such as [purH](https://raw.githubusercontent.com/prog4biol/pfb2025/master/files/purH.aa.fa) against the S. paratyphi B proteins. You can use the `blastp -db s_paratyphi.prot.fa -query purH.aa.fa -outfmt 5 -out result.xml`. The BLAST XML contains very detailed output about the alignments. Note that you can alternatively use -output 6 for a more human readable tab separated output format, but for BioPython we will use the XML output format (-outfmt 5)
+2. After you make your BLAST db with s_paratyphi.prot.fa, try to BLAST a protein such as [purH](purH.aa.fa) against the S. paratyphi B proteins. You can use the `blastp -db s_paratyphi.prot.fa -query purH.aa.fa -outfmt 5 -out result.xml`. The BLAST XML contains very detailed output about the alignments. Note that you can alternatively use -output 6 for a more human readable tab separated output format, but for BioPython we will use the XML output format (-outfmt 5)
 
       
 __Parse BLAST Output__
 
 
-1. Use BioPython to parse your XML BLAST results. You can refer to the code in the lecture notes for this [in the lecture notes](../lectures/biopython.md#parsing-blast-output). Print out all the hit sequence ID that are better than 1e-5 as well as their descriptions in tab separated columns.
+1. Use BioPython to parse your XML BLAST results. You can refer to the code in the lecture notes for this [in the lecture notes](biopython.md#parsing-blast-output). Print out all the hit sequence ID that are better than 1e-5 as well as their descriptions in tab separated columns.
 2. Print the E-value and the score and the length of the alignment and the % similarity (not % identity)
 
 
