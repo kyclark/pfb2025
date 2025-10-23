@@ -12,6 +12,6 @@ What BLAST Does / Why BLAST works
 
 ## Workshop session 2
 
- - [Lecture slides](cshl_pfb_25b_PEARSON.pdf)
+ - [Lecture slides](https://cshl_pfb_25b_PEARSON.pdf)
 
  - [Exercises](https://fasta.bioch.virginia.edu/mol_evol/pfb_python_matrices.html)
