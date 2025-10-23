@@ -2,21 +2,159 @@
 
 __Instructors__  
 Simon Prochnik  
-Sofia Robb     
+Sofia Robb   
+Jessen Bredeson  
+Eric Ross  
 
-# Workshops
+# Workshops and Overviews
+
+## Pipelines -- Simon Prochnik
+In modern bioinformatics research, designing and managing data‑analysis pipelines is key to achieving reproducibility, scalability, and maintainability. This lecture covers pipeline engineering in computational biology: how to structure, automate, and maintain workflows that process biological data from raw inputs to interpretable results.
+
+__Goals__:  
+By the end of this lecture, you will be able to:
+- explain the key concepts behind pipeline‑based analysis: modularity, reproducibility, traceability, and automation;
+- design a pipeline workflow that connects raw data through intermediate steps to final outputs, with clear dependencies and execution logic;
+- implement a basic bioinformatics pipeline, execute it, monitor it, and maintain it;
+
+__Scope__:  
+In this session we will focus on:
+- structuring pipeline components: defining the steps, specifying inputs and outputs, sequencing tasks, tracking dependencies;
+- integrating pipelines within reproducible research practices: parameterisation and modularisation;
+- pitfalls in pipeline design and how to avoid them.
+
+We will not attempt to cover every workflow engine in existence, nor delve deeply into low‑level system tuning (e.g., HPC scheduling beyond basic integration). Instead, our focus is on practical, foundational pipeline practices that you can apply directly in your computational biology research.
+
+__Dive in__:  
+  - [Lecture](../lectures/bioinfPipesLectureSimon.md)
+  - Problem set: None
+
+
+## Package Managers  -- Jessen Bredeson
+In modern computational biology workflows, managing software dependencies and isolated environments is critical for reproducibility, portability, and efficiency. This workshop covers mamba — a lightweight, high‑performance package and environment manager — and shows how to integrate it into your research projects.
+
+__Goals__:  
+By the end of this session, you will be able to:
+- explain what mamba is, and how it differs from other environment tools (such as conda).
+- install mamba and create isolated environments for your analyses.
+- manage package installations and environment activation using `micromamba`.
+- integrate mamba into reproducible workflows (for example in containers or shared projects).
+- recognise when mamba is the right tool for your workflow
+
+__Scope__:  
+We will focus on:
+- installing `micromamba` on your system
+- creating, removing, and activating environments
+- installing packages
+- `micromamba` channel configuration and cache cleaning
+
+We will not cover every advanced feature of mamba, or dive deeply into advanced packaging internals; our focus is on practical, reproducible use of mamba for research workflows. In the following sections, we will start by giving you a quick introduction to how mamba works, then walk through a live demonstration of environment setup
+
+__Dive in__:  
+  - [Lecture](../lectures/mamba.md)
+  - Problem set: None
+
+
+## BioPython -- Sofia Robb
+In modern bioinformatics workflows, automating the processing, analysis, and interpretation of biological sequence data is essential for reproducible, scalable research. This workshop introduces Biopython — a comprehensive open‑source Python library tailored for computational biology and bioinformatics tasks — and shows how to leverage it for practical, real‑world biological data processing.
+
+__Goals__:  
+By the end of this workshop, you will be able to:
+- explain what Biopython is and what kinds of bioinformatics tasks it supports;
+- install and import Biopython into your workflow;
+- use Biopython tools to read, parse, manipulate, and write common biological data formats (e.g., FASTA, GenBank, PDB);
+- apply Biopython in practical workflows (e.g., sequence operations, alignments, structure parsing, file conversions) relevant to your research;
+- integrate these capabilities into reproducible code, increasing the reliability, transparency, and shareability of your analyses.
+
+__Scope__:  
+In this session we will focus on:
+- setting up the development environment for Biopython (installation and basic import);
+- core modules and functions: working with sequence objects, reading/writing file formats, accessing biological databases programmatically;
+- use‑cases common in computational biology workflows (e.g., parsing FASTA/GenBank, processing PDB files, sequence manipulation and simple downstream analyses);
+- best practices for writing clear, maintainable scripts that use Biopython, including commenting, modularization, and reproducibility.
+
+We will not exhaustively cover every Biopython module, nor dive into highly advanced topics like custom extension of Biopython internals, deep algorithmic optimizations, or extensive performance tuning. The emphasis is on getting you productive and confident with practical uses of Biopython in your research context.
+
+__Dive in__:  
+  - [Lecture](BioPython/biopython.md)
+  - [Workshop](BioPython)
+
+
+## Pytest Testing  -- Jessen Bredeson
+Software in computational biology and data‑science workflows must not only run, but run correctly, reliably, and reproducibly. This lecture covers testing — the methods and practices for systematically verifying that code does what it is supposed to do, and continues to do so as it evolves.
+
+__Goals__:  
+By the end of this lecture, you will be able to:
+- explain why testing matters in scientific software (e.g., correctness, regressions, reproducibility);
+- write and run automated tests for your code;
+- integrate testing into your development workflow using AI
+- adopt best practices for organizing, writing, and maintaining tests to support long‑term project health.
+
+__Scope__:  
+In this session we will focus on:
+- the fundamentals of designing effective tests (what to test, how to structure tests, how to pick meaningful test cases);
+- practical Python tools and frameworks to write and execute tests;
+- pitfalls and common anti‑patterns
+
+We will not cover exhaustive detail on every testing framework nor deep dive into all advanced topics (such as property‑based testing, mutation testing, or highly optimized test harnesses). Instead, our focus is practical, actionable testing guidance tailored to research‑oriented code.
+
+__Dive in__:  
+  - [Lecture](../lectures/testing.md)
+  - [Problem Set](../problemsets/testing_problemset.md)
+
 
 ## Ethics and Responsibility in Bioinformatics -- Simon Prochnik
   - [Lecture]()
+
 
 ## Coding with AI -- Simon
   - [Lecture]()
   - [Workshop]()
 
+
 ## RNAseq -- Brian Haas
-  - [Lecture](https://github.com/trinityrnaseq/CSHLProgForBio/blob/main/rnaseq_slides_PFB2023.pdf)
-  - [Workshop](RNAseq)
+In bioinformatics research, two fundamental operations form the backbone of many downstream analyses: (1) the counting of short sub‑sequences (k‑mers) in sequencing data, and (2) mapping reads to a reference and summarizing counts into expression measures. These two sessions cover those operations in turn: first, the exercise on k‑mer counting; and second, the exercise on aligned reads to expression quantification.
+
+__Goals__:  
+By the end of these two sessions, you will be able to:
+- explain what a k‑mer is and why k‑mer counting is useful (e.g., for quality control, genome size estimation, complexity analysis).
+- perform k‑mer counting on sequencing data, interpret the output (histograms, counts), and relate it to biological questions.
+- map reads to a reference genome or transcriptome, and understand how to convert aligned reads into gene‑ or transcript‑level counts (expression measures).
+- integrate these steps into a reproducible workflow: from raw reads → k‑mer summary → alignment → count matrix → downstream analysis.
+- recognise the shape of typical outputs and common pitfalls (e.g., uninformative k‑mer distributions, low mapping rates, mis‑specified annotation) and know how to respond.
+
+__Scope__:  
+In these sessions we will focus on:
+- the theory and practice of k‑mer counting: choosing k, running tools, generating histograms, interpreting results.
+- the workflow from aligned reads to expression: aligning reads, counting reads per gene/transcript, generating count tables suitable for statistical analysis.
+- best practices for reproducibility, including documenting steps, using scripts, versioning inputs/outputs.
+
+We will not dive deeply into every tool available for either task (for example, we won’t exhaustively compare every k‑mer counter or every quantification engine). Nor will we develop full downstream statistical modelling (differential expression, network analysis) in this session. The focus is on giving you the build‑blocks: how to go from raw data to structured counts.
+
+__Dive in__:  
+  - [Lecture](RNAseq/rnaseq_slides_PFB2025.pdf)  
+  - [Workshop](RNAseq/README.md)  
+
 
 ## Protein Homology -- Bill Pearson
-  - [Lecture]()
-  - [Workshop]()
+In computational biology, leveraging evolutionary relationships between sequences is key to inferring function, annotation, and structure. This two‑part workshop focuses on sequence homology — how to detect, interpret, and apply homologous relationships among biological sequences for research.
+
+__Goals__:  
+By the end of this two‑part workshop, you will be able to:
+- articulate what sequence homology means and why it matters for biological inference;
+- use key tools to identify homologous sequences across species or within gene families;
+- test hypotheses of homology and function via statistically significant excees similarity
+
+__Scope__:  
+In this workshop we will focus on:
+- the conceptual foundations of sequence homology: how sequence similarity arises, how to differentiate true homology from chance resemblance;
+- homology search (e.g., BLAST/FASTA/SSEARCH) and hypothesis testing
+- Exploring domains with local alignments
+- when the scoring matrix matters
+
+We will not cover every mathematical detail (e.g., full theory of substitution models, deep Bayesian phylogenetics) nor exhaustively survey all homology detection software. The emphasis is on practical, accessible methods you can apply in your own research.
+
+__Dive in__:  
+  - [Lecture 1](Sequence_homology/cshl_pfb_25a.pdf)  
+  - [Lecture 2](Sequence_homology/cshl_pfb_25b.pdf)  
+  - [Workshop](Sequence_homology)

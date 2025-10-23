@@ -4,7 +4,7 @@
 import re
 import sys
 
-# first argument is enzyme anme
+# first argument is enzyme name
 # second argument is the sequence name
 # third argument is the fasta file name
 # Sample command: ./Python_07_ejr_10.py AatII seq1 seq.nt.fa

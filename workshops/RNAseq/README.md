@@ -5,6 +5,7 @@ Clone [Brian's Repository](https://github.com/trinityrnaseq/CSHLProgForBio).
 ## Make sure to not clone it inside one of your existing repositories
 
 ```
+cd ~/
 git clone git@github.com:trinityrnaseq/CSHLProgForBio.git
 ```
 

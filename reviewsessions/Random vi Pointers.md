@@ -58,4 +58,4 @@ Color schemes must be downloaded and placed in the directory `~/.vim/colors`. Fo
 
  * [How to set and use a color scheme](https://alvinalexander.com/linux/vi-vim-editor-color-scheme-colorscheme)
  
- * [The Dracula Theme](https://draculatheme.com/vim/) • Becuase why not.
+ * [The Dracula Theme](https://draculatheme.com/vim/) • Because why not.

@@ -113,11 +113,11 @@ Python 4 Problem Set -- Lists and Loops
    3	8	ATGGGCCC
    ```
 
-  - Now, sort your list of DNA fragments by size, longest to shortest, and print them out. Your ouput should represent what you would see after performing electrophoresis on an agarose gel.
+  - Now, sort your list of DNA fragments by size, longest to shortest, and print them out. Your output should represent what you would see after performing electrophoresis on an agarose gel.
 
 	![ladder](../images/ladder.png)
 	
-  The output will loook like this
+  The output will look like this
 
 ```  
 GCGTGCTAGCAATACGATAAACCGG
@@ -171,5 +171,5 @@ GATGGGATTGGGGTTTTCCCCTCCCATGTGCTCAAGACTGGCGCTAAAAGTTTTGAGCTTCTCAAAAGTCTAGAGCCACC
    - iterate over each fragment and report
       - the start position in the original sequence
       - the end position in the original sequence
-      - the length of each fragemnt
+      - the length of each fragment
    - sort the fragments by length and print out as they would appear after electrophoresis on a agrose gel. (big to little)

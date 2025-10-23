@@ -2,13 +2,16 @@
 
 ## Workshop session 1
 
- - [Lecture slides](cshl_pfb_24a_PEARSON.pdf)
+Protein Evolution / Similarity Searching  
+What BLAST Does / Why BLAST works  
+
+ - [Lecture slides](cshl_pfb_25a_PEARSON.pdf)
 
  - [Exercises](https://fasta.bioch.virginia.edu/mol_evol/)
 
 
 ## Workshop session 2
 
- - [Lecture slides](cshl_pfb_24b_PEARSON.pdf)
+ - [Lecture slides](cshl_pfb_25b_PEARSON.pdf)
 
  - [Exercises](https://fasta.bioch.virginia.edu/mol_evol/pfb_python_matrices.html)

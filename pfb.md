@@ -4,7 +4,7 @@
 # Python 1
 
 
-## Offical Python Documentation
+## Official Python Documentation
 
 The Python Software Foundation publishes the 
 [official documentation](https://docs.python.org) for all versions of Python.
