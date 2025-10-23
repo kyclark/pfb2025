@@ -7,7 +7,7 @@ What BLAST Does / Why BLAST works
 
  - [Lecture slides](cshl_pfb_25a_PEARSON.pdf)
 
- - [Exercises](https://fasta.bioch.virginia.edu/mol_evol/)
+ - [Exercises](fasta.bioch.virginia.edu/mol_evol)
 
 
 ## Workshop session 2
