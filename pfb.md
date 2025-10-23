@@ -4361,6 +4361,8 @@ def gc_content(dna):   # give our function a name and parameter 'dna'
    dna_len = len(dna)
    gc_content = (c_count + g_count) / dna_len
    return gc_content # return the value to the code that called this function
+  
+
 ```
 > Here is a custom function that you can use like a built in Python function
 
@@ -4501,7 +4503,7 @@ Instead of saving to a new dictionary, each sorted key,value pair can be used in
 Code:  
 ```python
 genes={'Brca1': 'TTTAA', 'TP53': 'AA'}
-for gene in sorted(genes, key=(lambda sequence : len(sequence))):
+for gene in sorted(genes, key=(lambda sequence : len(sequence))): 
   print(f"{gene} {genes[gene]} len={len(genes[gene])}")
 ```
 Output:  
@@ -4820,6 +4822,8 @@ You can't write `ls -l > listing.txt`  to redirect stdout in the subprocess meth
  tmp_file = 'listing.txt'
  with open(tmp_file,'w') as ofh:
      oops = subprocess.check_call(['ls', '-l'], stdout=ofh )
+ if oops:
+  	print('error')
 ```
 
 
@@ -4888,12 +4892,12 @@ To get a random index from an element of `list` use `i=random.randrange(len(list
 
 Typical statistical quantities
 
-| example                         | description                              |
-| ------------------------------- | ---------------------------------------- |
-| statistics.mean([1,2,3,4,5])    | mean or average                          |
-| statistics.median([ 2,3,4,5])   | median = 3.5                             |
-| statistics.stdev([1,2,3,4,5])   | standard deviation of sample (square root of sample variance) |
-| statistics.pstdev([1,2,3,4,5])q | estimate of population standard deviation |
+| example                        | description                                                  |
+| ------------------------------ | ------------------------------------------------------------ |
+| statistics.mean([1,2,3,4,5])   | mean or average                                              |
+| statistics.median([ 2,3,4,5])  | median = 3.5                                                 |
+| statistics.stdev([1,2,3,4,5])  | standard deviation of sample (square root of sample variance) |
+| statistics.pstdev([1,2,3,4,5]) | estimate of population standard deviation                    |
 
 ### glob
 
@@ -4930,7 +4934,7 @@ parser.add_argument("file", help="path to input fasta filename")
 # default type is string, need to specify if expecting an int
 parser.add_argument("lines", type=int, help="how many lines to print")
 
-# optional outfile argument specified with -o or --out
+# optional outfile argument specified with -o or --outfile
 parser.add_argument(
     "-o",
     "--outfile",
