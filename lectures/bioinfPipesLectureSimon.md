@@ -379,7 +379,7 @@ We can send the output to a file with `-out ilvG.bacteria.prot.fa.blastp.out`
 
 
 
-Here's an example of what we'd run in the terminal. You can think of this as a shell script.
+Here's an example of what we'd run in the terminal. You can think of this as a shell script. It documents exactly what we do, but it isn't flexible: we can't run this script on different inputs or change the E-value.
 
 ```bash
 #!/usr/bin/env zsh
@@ -500,6 +500,26 @@ for query in sorted(homologs):
         subject,evalue = data
         print(f'{subject} E-value={evalue}' )
 
+```
+
+Here's the output from running this script
+
+```
+% ./blastPipeline.py 
+Usage: ./blastPipeline.py   <query protein fasta>  <subject protein fasta>  <min E-value>
+% ./blastPipeline.py ilvG.bacteria.prot.fa EcoliO157.uniprot.fa 1e-10
+# ./blastPipeline.py ilvG.bacteria.prot.fa EcoliO157.uniprot.fa 1e-10
+# was run on 2025-10-23 07:16
+Hit summary
+Query: sp|P66947|ILVG_MYCBO
+P0AFI0 E-value=4.2e-57
+P0DP90 E-value=1.12e-39
+P00893 E-value=1.52e-39
+P08142 E-value=5.05e-39
+P0AEP7 E-value=2.98e-36
+P0DP89 E-value=3.59e-28
+P07003 E-value=1.4e-22
+(base) simonp:~/Documents/programmingForBiology/PFB2024_course_lectures% 
 ```
 
 
