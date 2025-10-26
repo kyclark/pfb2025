@@ -39,7 +39,7 @@ Jessen Bredeson
   
 ----  
 
-## [Project Name]
+## TranscriptHomies
 
 ### Repo
 [TranscriptHomies](https://github.com/rikellermeyer/TranscriptHomies)
