@@ -42,20 +42,20 @@ Jessen Bredeson
 ## [Project Name]
 
 ### Repo
-[Repo Name](path)
+[TranscriptHomies](https://github.com/rikellermeyer/TranscriptHomies)
 
 ### Participants
-- [Participant]
-- [Participant]
-- [Participant]
-- [Participant]
+- Grace Beggs
+- Caroline Harrer
+- HeaJin Hong
+- Tess Kelly
+- Zilin Xianyu
 
 ### TAs
-Rebekah Kim, Riley Kellermeyer
+Bekah Kim, Riley Kellermeyer
   
 ### Summary
-
-
+Build a tool that identifies and visualizes gene - gene expression correlations between two biological groups (e.g., diseased vs. normal samples).
   
 ----  
 
