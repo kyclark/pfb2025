@@ -1,20 +1,20 @@
 # PFB 2025 Group Projects
 
-## [Project Name]
+## Immune Escape
 
 ### Repo
-[Repo Name](path)
+[ImmuneEscape](https://github.com/cmdcolin/ImmuneEscape)
 
 ### Participants
-- [Participant]
-- [Participant]
-- [Participant]
-- [Participant]
+- Emma Saart
+- Walter Orellana
+- Anastasia Rusnak 
 
 ### TA
 Colin Diesh
 
 ### Summary
+An interactive 2-player game, implemented using PyGame, where you get to make the immune system battle against pathogens. Users can choose different types of pathogens, select adaptive or innate immunity, and choose attack and defense maneuvers. The game uses high-quality drawings from resources like NIH BioArt (https://bioart.niaid.nih.gov/) and other freely licensed art. The configuration file is used to configure the different pathogens and defense capabilities, providing data-driven game behaviors
 
 
   
