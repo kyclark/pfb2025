@@ -78,22 +78,22 @@ Ken Youen-Clark
 
 ----  
 
-## [Project Name]
+## [Peak Fitness]
 
 ### Repo
-[Repo Name](path)
+[peak-fitness](https://github.com/jklynch/peak-fitness)
 
 ### Participants
-- [Participant]
-- [Participant]
-- [Participant]
-- [Participant]
+- Jane Liu
+- Ananya Nidamangala Srinivasa
+- Vivian Li
+- Giancarlo Gonzalez
 
 ### TA
 Joshua Lynch
   
 ### Summary
-
+You have five guesses to find the peak of a protein fitness landscape.
 
 
 
