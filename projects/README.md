@@ -95,7 +95,7 @@ Ken Youen-Clark
 Joshua Lynch
   
 ### Summary
-
+You have five guesses to find the peak of a protein fitness landscape.
 
 
 
