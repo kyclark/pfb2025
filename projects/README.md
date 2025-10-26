@@ -21,16 +21,14 @@ Colin Diesh
 ----  
 
 
-## [Project Name]
+## OptimusPrymer - Primer Design
 
 ### Repo
-[Repo Name](path)
+[OptimusPrymer](https://github.com/josiahmurra/cshl_primer_design)
 
 ### Participants
-- [Participant]
-- [Participant]
-- [Participant]
-- [Participant]
+- Josiah Murray
+- Huishi Toh
 
 ### TA
 Jessen Bredeson
