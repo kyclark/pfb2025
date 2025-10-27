@@ -59,7 +59,7 @@ Build a tool that identifies and visualizes gene - gene expression correlations 
   
 ----  
 
-## [Project Name]
+## Mbryg
 
 ### Repo
 [mbryg](https://github.com/egabal/mbryg)
